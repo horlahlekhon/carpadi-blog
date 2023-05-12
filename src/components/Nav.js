@@ -11,7 +11,7 @@ import lightLogo from "../images/logo-light.webp"
 import darkLogo from "../images/logo-dark.webp"
 import "../styles/nav.css"
 
-export default function Nav({ dark, setDark, modalShow, input }) {
+export default function Nav({ dark, setDark, modalShow, input, removeTopics }) {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -99,30 +99,32 @@ export default function Nav({ dark, setDark, modalShow, input }) {
                     <h2>Main Menu</h2>
                     <div className="canvas-links split-canvas">
                       <p>
-                        <Link to="">Home</Link>
+                        <Link to="/">Home</Link>
                       </p>
                       <p>
-                        <Link to="">Our Team</Link>
+                        <Link to="/authors">Our Team</Link>
                       </p>
                       <p>
-                        <Link to="">Contact</Link>
+                        <Link to="/contact">Contact</Link>
                       </p>
                     </div>
 
+<div style={{display: `${removeTopics ? "none" : "block"}`}}>
                     <h2 className="scn-h2">Topics</h2>
                     <div className="canvas-links">
                       <p>
-                        <Link to="">Advertising</Link>
+                        <Link to="/category/advertising">Advertising</Link>
                       </p>
                       <p>
-                        <Link to="">Case Studies</Link>
+                        <Link to="/category/case%20studies">Case Studies</Link>
                       </p>
                       <p>
-                        <Link to="">Innovation</Link>
+                        <Link to="/category/innovation">Innovation</Link>
                       </p>
                       <p>
-                        <Link to="">Management</Link>
+                        <Link to="/category/management">Management</Link>
                       </p>
+                    </div>
                     </div>
                   </div>
                 </Offcanvas.Body>
@@ -168,9 +170,9 @@ export default function Nav({ dark, setDark, modalShow, input }) {
             </div>
 
             <Navigation className="nav-links-md">
-              <Link to="#home">Home</Link>
-              <Link to="#features">Our Team</Link>
-              <Link to="#pricing">Contact</Link>
+              <Link to="/">Home</Link>
+              <Link to="/authors">Our Team</Link>
+              <Link to="/contact">Contact</Link>
             </Navigation>
 
             <div
@@ -219,3 +221,9 @@ export default function Nav({ dark, setDark, modalShow, input }) {
     </div>
   )
 }
+
+
+Nav.defaultProps = {
+  removeTopics: true
+}
+

@@ -5,47 +5,15 @@ import Slider from "react-slick"
 import styled from "styled-components"
 import Author from "./Author"
 
-const Slides = () => {
+const Slides = ({ slidesData }) => {
   const slider = React.useRef(null)
   const bgUrl = require("../images/programmer-slidebg.jpg").default
+
+  console.log(slidesData)
 
   const Div = styled.div`
     display: block;
     margin: 15px;
-
-    .slide_card {
-      position: relative;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      flex: 1 1 0%;
-      /* background-image: ; */
-      background-size: cover;
-      /* background-position: 100%; */
-      background-image: linear-gradient(
-          120deg,
-          rgb(45, 55, 72) 0%,
-          transparent 180%
-        ),
-        url(${bgUrl});
-      border-radius: 1rem;
-      background-repeat: no-repeat;
-      padding: 2rem 2rem 10rem;
-      height: 232px;
-    }
-
-    .slide_card .title {
-      margin: auto 0px 13px;
-      line-height: 1.33;
-      display: block;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 20px;
-      text-shadow: rgb(45, 55, 72) 1px 1px 0px;
-      color: var(--theme-ui-colors-white);
-      width: 100%;
-    }
-
 
     .slick-dots {
       position: absolute;
@@ -80,25 +48,7 @@ const Slides = () => {
       display: none;
     }
 
-    @media (min-width: 576px) {
-      .slide_card {
-        height: 288px;
-      }
-
-      .slide_card .title {
-        margin: 43px 0px;
-      }
-    }
-
     @media (min-width: 640px) {
-      .slide_card {
-        padding: 2rem 2rem 0 8rem;
-      }
-
-      .slide_card .title {
-        margin: 30px 0px;
-      }
-
       .slick-dots {
         display: flex !important;
         flex-direction: column;
@@ -191,6 +141,85 @@ const Slides = () => {
       }
     }
   `
+
+  const SlideCard = styled.div`
+    .slide_card {
+      position: relative;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0%;
+      /* background-image: ; */
+      background-size: cover;
+      /* background-position: 100%; */
+      background-image: linear-gradient(
+          120deg,
+          rgb(45, 55, 72) 0%,
+          transparent 180%
+        ),
+        ${(props) => `url(${props.bgImg})`};
+      border-radius: 1rem;
+      background-repeat: no-repeat;
+      padding: 2rem 2rem 10rem;
+      height: 232px;
+    }
+
+    .slide_card .title {
+      margin: auto 0px 13px;
+      line-height: 1.33;
+      display: block;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 20px;
+      text-shadow: rgb(45, 55, 72) 1px 1px 0px;
+      color: var(--theme-ui-colors-white);
+      width: 100%;
+    }
+
+    @media (min-width: 576px) {
+      .slide_card {
+        height: 288px;
+      }
+
+      .slide_card .title {
+        margin: 43px 0px;
+      }
+    }
+
+    @media (min-width: 640px) {
+      .slide_card {
+        padding: 2rem 2rem 0 8rem;
+      }
+
+      .slide_card .title {
+        margin: 30px 0px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .slide_card .title {
+        font-size: 22px;
+        margin: 43px 0 0;
+      }
+    }
+
+    @media (min-width: 920px) {
+      .slide_card {
+        height: 333px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .slide_card {
+        height: 400px;
+      }
+
+      .slide_card .title {
+        font-size: 36px;
+        margin: 43px 0 0;
+      }
+    }
+  `
   const settings = {
     arrows: false,
     fade: true,
@@ -218,27 +247,22 @@ const Slides = () => {
       </div>
 
       <Slider ref={slider} {...settings}>
-        <div className="slide_card">
-          <Link to="" className="title">
-            Markdown Language Sample Blog Post Styling
-          </Link>
+        {slidesData.map(post => (
+       
+          <SlideCard key={post.id} bgImg={require(`../images/${post.frontmatter.featuredImg.relativePath}`).default} >
+            <div className="slide_card">
+              <Link to={post.fields.slug} className="title">
+                {post.frontmatter.title}
+              </Link>
 
-          <Author />
-        </div>
-        <div className="slide_card">
-          <Link to="" className="title">
-            Language Sample Blog Post Styling
-          </Link>
-
-          <Author />
-        </div>
-        <div className="slide_card">
-          <Link to="" className="title">
-            Language Sample Blog Post Styling
-          </Link>
-
-          <Author />
-        </div>
+              <Author
+                authorName={post.frontmatter.author}
+                date={post.frontmatter.date}
+                readTime={post.frontmatter.readtime}
+              />
+            </div>
+          </SlideCard>
+        ))}
       </Slider>
     </Div>
   )

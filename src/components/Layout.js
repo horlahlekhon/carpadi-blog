@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 import Seo from "./Seo"
 import { Link } from "gatsby"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, removeTopics }) => {
   // will contain theme functions and variables
 
   //set a local storage for the theme
@@ -110,6 +110,7 @@ const Layout = ({ children }) => {
         modalShow={handleModalShow}
         dark={isDark}
         setDark={setIsDark}
+        removeTopics={removeTopics}
       />
       {/* nav  */}
       <main className="main_ctn">{children}</main>

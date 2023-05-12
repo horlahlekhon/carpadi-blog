@@ -1,7 +1,5 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import CategoryMenu from "../components/CategoryMenu"
@@ -14,32 +12,33 @@ import SmallCard from "../components/SmallCard"
 import CategoryHeading from "../components/CategoryHeading"
 
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+const BlogIndex = ({ data }) => {
+  const slidesPosts = data.slidesData.nodes
+  const headerPosts = data.headerData.nodes
+  const advertBigDataPosts = data.advertBigCardData.nodes
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
+  // if (posts.length === 0) {
+  //   return (
+  //     <Layout>
+  //       <p>
+  //         No blog posts found. Add markdown posts to "content/blog" (or the
+  //         directory you specified for the "gatsby-source-filesystem" plugin in
+  //         gatsby-config.js).
+  //       </p>
+  //     </Layout>
+  //   )
+  // }
+
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout removeTopics={false}>
       <CategoryMenu />
 
       <Row style={{ margin: "0" }}>
         <Col md={9} style={{ padding: "0 1px" }}>
-          <Slides />
+          <Slides slidesData={slidesPosts}/>
 
-          <SmallCard />
+          <SmallCard headerData={headerPosts}/>
 
           {/* <Row style={{ margin: "0" }}>
               <Col xs={12}>
@@ -150,32 +149,41 @@ const BlogIndex = ({ data, location }) => {
       </Row>
 
       <CategoryHeading category="advertising"/>
-      <Card cardType="advert"/>
+      <div style={{padding: "0 14px"}}>
+       <Card data={advertBigDataPosts} cardType="advert"/>
+      </div>
+     
       <SmallCard cardType="advert" />
 
       
-      <div className="analysis">
+      {/* <div className="analysis">
         <div>
           <h2>The latest IT market analysis report - May 2020</h2>
           <p>This month's analysis is a must see.</p>
         </div>
 
         <Link to="">Download Report</Link>
+      </div> */}
+
+
+      <CategoryHeading category="case-studies"/>
+      <div style={{padding: "0 14px"}}>
+      <Card data={advertBigDataPosts} cardType="case-studies" removeBadge={true}/>
       </div>
-
-
-      <CategoryHeading category="case studies"/>
-      <Card cardType="case studies" removeBadge={true}/>
-      {/* <SmallCard cardType="case studies" /> */}
+      {/* <SmallCard cardType="case-studies" /> */}
       
 
-      <CategoryHeading category="innovation"/>
+      {/* <CategoryHeading category="innovation"/>
+      <div style={{padding: "0 14px"}}>
       <Card cardType="innovation"/>
+      </div>
       <SmallCard cardType="innovation" />
       
 
       <CategoryHeading category="management"/>
+      <div style={{padding: "0 14px"}}>
       <Card cardType="management" removeBadge={true}/>
+      </div> */}
 
 
 
@@ -204,8 +212,8 @@ const BlogIndex = ({ data, location }) => {
       </div>
 
       {/* <Bio /> */}
-      {/* <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
+      <ol style={{ listStyle: `none` }}>
+        {slidesPosts.map(post => {
           const title = {
             ...post,
             title:
@@ -243,7 +251,7 @@ const BlogIndex = ({ data, location }) => {
             </li>
           )
         })}
-      </ol> */}
+      </ol>
     </Layout>
   )
 }
@@ -255,27 +263,69 @@ export default BlogIndex
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="All posts" />
+export const Head = () => <Seo title="Home" />
 
 export const pageQuery = graphql`
-  {
-    site {
-      siteMetadata {
+query HomePage{
+  slidesData: allMarkdownRemark(sort: {frontmatter: {date: DESC}},limit: 3) {
+    nodes {
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
         title
-      }
-    }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-      nodes {
-        excerpt
-        fields {
-          slug
+        readtime
+        featuredImg {
+          relativePath
         }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
+        author
       }
+      fields {
+        slug
+      }
+      id
     }
   }
+
+  headerData: allMarkdownRemark(sort: {frontmatter: {date: DESC}}, limit: 4) {
+    nodes {
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        title
+        readtime
+        author
+        category
+        thumbImg {
+          relativePath
+        }
+      }
+      fields {
+        slug
+      }
+      id
+    }
+  }
+
+  advertBigCardData: allMarkdownRemark(
+    filter: {frontmatter: {category: {eq: "advertising"}}}
+    sort: {frontmatter: {date: DESC}}, limit: 3
+    ) {
+    nodes {
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        title
+        readtime
+        author
+        category
+        thumbImg {
+          relativePath
+        }
+      }
+      fields {
+        slug
+      }
+      id
+    }
+  }
+
+
+}
 `

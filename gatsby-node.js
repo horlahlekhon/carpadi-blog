@@ -9,6 +9,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Define the template for blog post
 const blogPost = path.resolve(`./src/templates/blog-post.js`)
+const categoryPost = path.resolve("./src/templates/category.js")
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -25,6 +26,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           fields {
             slug
           }
+          frontmatter {
+            category
+          }
         }
       }
     }
@@ -39,6 +43,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMarkdownRemark.nodes
+
+  const postsPerPage = 3
+  const numberOfCategoryPosts = posts.length
+  const numberOfPages = Math.ceil(numberOfCategoryPosts / postsPerPage)
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -60,6 +68,47 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+
+  posts.forEach((post, index) => {
+  for (let pageIndex = 0; pageIndex < numberOfPages; pageIndex++) {
+    const pageNumber = pageIndex + 1
+    const path = pageIndex === 0 ? `/category/${post.frontmatter.category}` : `/category/${post.frontmatter.category}/${pageNumber}`
+    const skip = pageIndex * postsPerPage
+
+    function getNextPageLink() {
+      if (pageNumber < numberOfPages) {
+        return `${pageNumber + 1}`
+      }
+
+      return null
+    }
+
+    function getPreviousPageLink() {
+      if (!pageIndex) return null
+
+      if (pageIndex === 1) return `/category/${post.frontmatter.category}`
+      //else
+      return `${pageIndex}`
+    }
+
+    createPage({
+      // path: "/projects/" + post.frontmatter.category,
+      path,
+      component: categoryPost,
+      context: {
+        limit: postsPerPage,
+        skip,
+        category: post.frontmatter.category,
+        next: getNextPageLink(),
+        prev: getPreviousPageLink(),
+        totalPage: numberOfPages,
+        currentPage: pageNumber
+      },
+      // context: { category: post.frontmatter.category },
+    })
+  }
+  })
+
 }
 
 /**

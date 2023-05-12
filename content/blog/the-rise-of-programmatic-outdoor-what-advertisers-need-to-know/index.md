@@ -1,8 +1,14 @@
 ---
-title: ""
-date: "2015-05-28T22:40:32.169Z"
-description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
+title: "The Rise Of Programmatic Outdoor What Advertisers Need To Know"
+date: "2020-03-16"
+readtime: "2 min"
+category: "management"
+thumbImg: "../../../src/images/programmer-thumb.webp"
+featuredImg: "../../../src/images/programmer-thumb.webp"
+tags: ["agency", "business", "technology"]
+author: 'Jane Smith'
 ---
+
 
 Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in Bookmarksgrove

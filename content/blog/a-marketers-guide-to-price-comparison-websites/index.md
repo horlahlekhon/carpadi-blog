@@ -1,7 +1,12 @@
 ---
-title: ""
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+title: "A Marketer’s Guide to Price Comparison Websites"
+date: "2023-04-16"
+readtime: "3 min"
+category: "advertising"
+thumbImg: "../../../src/images/salty_egg.jpg"
+featuredImg: "../../../src/images/salty_egg.jpg"
+tags: ["agency", "business", "technology"]
+author: 'Steve Grant'
 ---
 
 This is my first post on my new fake blog! How exciting!
@@ -89,7 +94,6 @@ This is a paragraph.
 
 > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
 
-    > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
 
 > ## This is a header.
 >

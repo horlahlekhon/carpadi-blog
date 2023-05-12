@@ -1,7 +1,14 @@
 ---
-title: My Second Post!
-date: "2015-05-06T23:46:37.121Z"
+title: "Markdown Language Sample Blog Post Styling"
+date: "2021-05-15"
+readtime: "2 min"
+category: "advertising"
+thumbImg: "../../../src/images/programmer-thumb.webp"
+featuredImg: "../../../src/images/programmer-thumb.webp"
+tags: ["tutorial", "technology"]
+author: 'Jane Smith'
 ---
+
 
 Wow! I love blogging so much already.
 

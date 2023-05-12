@@ -6,7 +6,7 @@ import styled from "styled-components"
 import { FaRegClock, FaTasks } from "react-icons/fa"
 import { AiOutlineFileText } from "react-icons/ai"
 
-const SmallCard = ({ cardType }) => {
+const SmallCard = ({ cardType,headerData, removeBadge }) => {
   /* when cardtype === advert
       then set image to null
       padding
@@ -14,11 +14,11 @@ const SmallCard = ({ cardType }) => {
       link to advert link
 
       and padding to this  */
-  /* when cardtype === case studies
-      then set image to case studies 
+  /* when cardtype === case-studies
+      then set image to case-studies 
       padding
       font sizes
-      link to case studies link */
+      link to case-studies link */
 
   /* 5px 13px */
 
@@ -55,7 +55,7 @@ const SmallCard = ({ cardType }) => {
 
     .small-card-div .image-ctn {
       display: block;
-      width: 40%;
+      flex-basis: 40%;
       margin: 0 0.5rem;
     }
 
@@ -66,6 +66,7 @@ const SmallCard = ({ cardType }) => {
     }
 
     .small-card-div .card-body {
+      flex-basis: 80%;
       padding: 7px 13.6px 0px 5px;
     }
 
@@ -143,6 +144,13 @@ const SmallCard = ({ cardType }) => {
       display: none;
     }
 
+
+    #advert-card-div .card-body .badge-div {
+      display:${removeBadge ? "none" : 'block'} !important;
+
+    }
+    
+
     #advert-card-div .card-body .badge {
       transition: all 250ms ease 0s;
       background-color: ${cardType === "advert"
@@ -172,7 +180,7 @@ const SmallCard = ({ cardType }) => {
       align-items: center;
       margin: 0;
       width: 70%;
-      background-color: ${cardType === "case studies" ? '#c6f6d5' : '#bee3f8'};
+      background-color: ${cardType === "case-studies" ? '#c6f6d5' : '#bee3f8'};
       color: #2d3748;
       height: 100%;
       border-radius: 0.5rem;
@@ -267,7 +275,7 @@ const SmallCard = ({ cardType }) => {
     }
 
     @media (min-width: 640px) {
-      display: flex;
+      display: ${removeBadge ? "block" : 'flex'};
       justify-content: center;
       flex-wrap: wrap;
       padding: 0 7px;
@@ -466,24 +474,25 @@ const SmallCard = ({ cardType }) => {
     <div>
       {cardType === "default" && (
         <Div>
-          <Card className="small-card-div">
+          {headerData.map(post => (
+            <Card key={post.id} className="small-card-div">
             <Link className="image-ctn" to="">
-              <Card.Img src={image} />
+              <Card.Img src={require(`../images/${post.frontmatter.thumbImg.relativePath}`).default} />
             </Link>
 
             <Card.Body>
-              <Link className="badge-div" to="">
-                <Badge>Advertising</Badge>
+              <Link className="badge-div" to={`category/${post.frontmatter.category}`}>
+                <Badge>{(post.frontmatter.category.charAt(0).toUpperCase() + post.frontmatter.category.slice(1)).replace(/-/g,' ')}</Badge>
               </Link>
 
               <Card.Title>
-                <Link to="">Markdown Language Sample Blog Post Styling</Link>
+                <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
               </Card.Title>
 
               <div className="auth_link">
-                <Link to="">Jane Smith</Link>
+                <Link to="">{post.frontmatter.author}</Link>
                 <span>
-                  May 15, 2021・ <FaRegClock /> 1 min
+                {post.frontmatter.date}・ <FaRegClock /> {post.frontmatter.readtime}
                 </span>
               </div>
 
@@ -492,84 +501,11 @@ const SmallCard = ({ cardType }) => {
               {/* <Button variant="primary">Go somewhere</Button> */}
             </Card.Body>
           </Card>
-          <Card className="small-card-div">
-            <Link className="image-ctn" to="">
-              <Card.Img src={image} />
-            </Link>
 
-            <Card.Body>
-              <Link className="badge-div" to="">
-                <Badge>Advertising</Badge>
-              </Link>
+          ))}
+          
 
-              <Card.Title>
-                <Link to="">Markdown Language Sample Blog Post Styling</Link>
-              </Card.Title>
 
-              <div className="auth_link">
-                <Link to="">Jane Smith</Link>
-                <span>
-                  May 15, 2021・ <FaRegClock /> 1 min
-                </span>
-              </div>
-
-              {/* <Author /> */}
-
-              {/* <Button variant="primary">Go somewhere</Button> */}
-            </Card.Body>
-          </Card>
-          <Card className="small-card-div">
-            <Link className="image-ctn" to="">
-              <Card.Img src={image} />
-            </Link>
-
-            <Card.Body>
-              <Link className="badge-div" to="">
-                <Badge>Advertising</Badge>
-              </Link>
-
-              <Card.Title>
-                <Link to="">Markdown Language Sample Blog Post Styling</Link>
-              </Card.Title>
-
-              <div className="auth_link">
-                <Link to="">Jane Smith</Link>
-                <span>
-                  May 15, 2021・ <FaRegClock /> 1 min
-                </span>
-              </div>
-
-              {/* <Author /> */}
-
-              {/* <Button variant="primary">Go somewhere</Button> */}
-            </Card.Body>
-          </Card>
-          <Card className="small-card-div">
-            <Link className="image-ctn" to="">
-              <Card.Img src={image} />
-            </Link>
-
-            <Card.Body>
-              <Link className="badge-div" to="">
-                <Badge>Advertising</Badge>
-              </Link>
-
-              <Card.Title>
-                <Link to="">Markdown Language Sample Blog Post Styling</Link>
-              </Card.Title>
-
-              <div className="auth_link">
-                <Link to="">Jane Smith</Link>
-                <span>
-                  May 15, 2021・ <FaRegClock /> 1 min
-                </span>
-              </div>
-
-              {/* <Author /> */}
-
-              {/* <Button variant="primary">Go somewhere</Button> */}
-            </Card.Body>
-          </Card>
         </Div>
       )}
 
@@ -657,16 +593,16 @@ const SmallCard = ({ cardType }) => {
         </Div>
       )}
 
-      {(cardType === "case studies" || cardType === "management") && (
+      {(cardType === "case-studies" || cardType === "management") && (
         <Div id="case-studies-ctn" style={{ padding: "0" }}>
           <Card className="small-card-div" id="case-card-div">
           <Link className="image-ctn" to="">
               <div className="file-type">
-                {cardType === "case studies" ? 
+                {cardType === "case-studies" ? 
                 <AiOutlineFileText /> : <FaTasks />
               }
                 
-                <p>{cardType.charAt(0).toUpperCase() + cardType.slice(1)}</p>
+                <p>{(cardType.charAt(0).toUpperCase() + cardType.slice(1)).replace(/-/g,' ')}</p>
               </div>
 
               <div className="image-bg"></div>
@@ -694,11 +630,11 @@ const SmallCard = ({ cardType }) => {
           <Card className="small-card-div" id="case-card-div">
           <Link className="image-ctn" to="">
               <div className="file-type">
-                {cardType === "case studies" ? 
+                {cardType === "case-studies" ? 
                 <AiOutlineFileText /> : <FaTasks />
               }
                 
-                <p>{cardType.charAt(0).toUpperCase() + cardType.slice(1)}</p>
+                <p>{(cardType.charAt(0).toUpperCase() + cardType.slice(1)).replace(/-/g,' ')}</p>
               </div>
 
               <div className="image-bg"></div>
@@ -726,11 +662,11 @@ const SmallCard = ({ cardType }) => {
           <Card className="small-card-div" id="case-card-div">
             <Link className="image-ctn" to="">
               <div className="file-type">
-                {cardType === "case studies" ? 
+                {cardType === "case-studies" ? 
                 <AiOutlineFileText /> : <FaTasks />
               }
                 
-                <p>{cardType.charAt(0).toUpperCase() + cardType.slice(1)}</p>
+                <p>{(cardType.charAt(0).toUpperCase() + cardType.slice(1)).replace(/-/g,' ')}</p>
               </div>
 
               <div className="image-bg"></div>
@@ -765,4 +701,5 @@ export default SmallCard
 
 SmallCard.defaultProps = {
   cardType: "default",
+  removeBadge: false
 }

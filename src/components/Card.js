@@ -7,14 +7,14 @@ import Author from "./Author"
 import SmallCard from "./SmallCard"
 // import CategoryHeading from "./CategoryHeading"
 
-const CardComponent = ({cardType, removeBadge}) => {
+const CardComponent = ({cardType,data, removeBadge, removeLink}) => {
   const image = require("../images/programmer-thumb.webp").default
 
   const Div = styled.div`
-    padding: 0 14px;
+    /* padding: 0 14px; */
 
     .card-div {
-      display:${(cardType === "case studies" || cardType === "management") ? "none" : 'flex'} ;
+      display:${(cardType === "case-studies" || cardType === "management") ? "none" : 'flex'} ;
       margin: 14px 0;
       background-color: var(--theme-ui-colors-contentBg);
       border-radius: 1rem;
@@ -35,7 +35,7 @@ const CardComponent = ({cardType, removeBadge}) => {
 
     .card-div .image-ctn {
       display: block;
-      width: 50%;
+      flex-basis: 40%;
       margin: 0 0.5rem;
     }
 
@@ -46,6 +46,7 @@ const CardComponent = ({cardType, removeBadge}) => {
     }
 
     .card-div .card-body {
+      flex-basis: 60%;
       padding: 7px 13.6px 13px 5px;
     }
 
@@ -135,7 +136,7 @@ const CardComponent = ({cardType, removeBadge}) => {
 
       //change later....
       .card-div:nth-child(3){
-        display: ${(cardType === "case studies" || cardType === "management") ? "none" : 'flex'} ;
+        display: ${(cardType === "case-studies" || cardType === "management") ? "none" : 'flex'} ;
       }
 
       .card-div .card-body {
@@ -293,98 +294,45 @@ const CardComponent = ({cardType, removeBadge}) => {
     <div>
 
       <Div>
-        <Card className="card-div">
-          <Link className="image-ctn" to="">
-            <Card.Img src={image} />
-          </Link>
-
-          <Card.Body>
-            <Link className="badge-div" to="">
-              <Badge>{ cardType === 'advert' ? "Advertising" : "Innovation"}</Badge>
+        {data.map(post => (
+            <Card key={post.id} className="card-div">
+            <Link className="image-ctn" to="">
+              <Card.Img src={image} />
             </Link>
+  
+            <Card.Body>
+              <Link className="badge-div" to={removeLink ? "" : `category/${post.frontmatter.category}` }>
 
-            <Card.Title>
-              <Link to="">Markdown Language Sample Blog Post Styling</Link>
-            </Card.Title>
+                <Badge>{ cardType === 'advert' ? "Advertising" : "Innovation"}</Badge>
+              </Link>
+  
+              <Card.Title>
+                <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+              </Card.Title>
+  
+              <Card.Text>
+                Markdown is a lightweight markup language with
+                plain-text-formatting syntax. Its design allows it to…
+              </Card.Text>
+  
+              <div className="auth_link">
+                <Link to="">{post.frontmatter.author}</Link>
+                <span>{post.frontmatter.date}</span>
+              </div>
+  
+              <Author 
+              authorName={post.frontmatter.author}
+              date={post.frontmatter.date}
+              />
+  
+              {/* <Button variant="primary">Go somewhere</Button> */}
+            </Card.Body>
+          </Card>   
 
-            <Card.Text>
-              Markdown is a lightweight markup language with
-              plain-text-formatting syntax. Its design allows it to…
-            </Card.Text>
-
-            <div className="auth_link">
-              <Link to="">Jane Smith</Link>
-              <span>May 15, 2021</span>
-            </div>
-
-            <Author />
-
-            {/* <Button variant="primary">Go somewhere</Button> */}
-          </Card.Body>
-        </Card>   
-
-        <Card className="card-div">
-          <Link className="image-ctn" to="">
-            <Card.Img src={image} />
-          </Link>
-
-          <Card.Body>
-            <Link className="badge-div" to="">
-              <Badge>{ cardType === 'advert' ? "Advertising" : "Innovation"}</Badge>
-            </Link>
-
-            <Card.Title>
-              <Link to="">Markdown Language Sample Blog Post Styling</Link>
-            </Card.Title>
-
-            <Card.Text>
-              Markdown is a lightweight markup language with
-              plain-text-formatting syntax. Its design allows it to…
-            </Card.Text>
-
-            <div className="auth_link">
-              <Link to="">Jane Smith</Link>
-              <span>May 15, 2021</span>
-            </div>
-
-            <Author />
-
-            {/* <Button variant="primary">Go somewhere</Button> */}
-          </Card.Body>
-        </Card>
-
-        <Card className="card-div">
-          <Link className="image-ctn" to="">
-            <Card.Img src={image} />
-          </Link>
-
-          <Card.Body>
-            <Link className="badge-div" to="">
-              <Badge>{ cardType === 'advert' ? "Advertising" : "Innovation"}</Badge>
-            </Link>
-
-            <Card.Title>
-              <Link to="">Markdown Language Sample Blog Post Styling</Link>
-            </Card.Title>
-
-            <Card.Text>
-              Markdown is a lightweight markup language with
-              plain-text-formatting syntax. Its design allows it to…
-            </Card.Text>
-
-            <div className="auth_link">
-              <Link to="">Jane Smith</Link>
-              <span>May 15, 2021</span>
-            </div>
-
-            <Author />
-
-            {/* <Button variant="primary">Go somewhere</Button> */}
-          </Card.Body>
-        </Card>
-   
+        ))}
+      
         <div>
-        {(cardType === "case studies" || cardType === "management") && 
+        {(cardType === "case-studies" || cardType === "management") && 
         <SmallCard cardType={cardType} />}
         </div>
 
@@ -396,5 +344,6 @@ const CardComponent = ({cardType, removeBadge}) => {
 export default CardComponent
 
 CardComponent.defaultProps = {
-  cardType: "advert"
+  cardType: "advert",
+  removeLink: false
 }

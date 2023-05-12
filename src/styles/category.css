@@ -1,0 +1,152 @@
+.category_ctn {
+    margin: 32px 14px;
+}
+
+.category_ctn h2 {
+    margin: 0px 0px 1rem;
+    line-height: 1.33;
+    display: block;
+    color: var(--theme-ui-colors-heading);
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.category_ctn h2 .badge{
+    transition: all 250ms ease;
+    background-color: var(--theme-ui-colors-white) !important;
+    color: var(--theme-ui-colors-alpha) !important;
+    font-size: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+
+.category_ctn h2 .badge:hover{
+    background-color: var(--theme-ui-colors-alpha) !important;
+    color: var(--theme-ui-colors-white) !important;
+}
+
+
+
+
+.category_ctn h6 {
+    margin: 0px 0px 1rem;
+    line-height: 1.5rem;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--theme-ui-colors-omegaDark);
+}
+
+
+.category_ctn .paginator{
+    display: flex;
+    background-color: var(--theme-ui-colors-contentBg);
+    align-items: center;
+    text-align: center;
+    border-radius: 9999px;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 28px auto;
+   
+}
+
+
+/* .category_ctn .paginator a.prev_btn{
+ visibility: hidden;
+} */
+
+.category_ctn .paginator a{
+    padding: 0.7rem 1rem;
+    border-image: initial;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 250ms ease 0s;
+    color: var(--theme-ui-colors-omegaLighter);
+    background-color: var(--theme-ui-colors-omegaDark);
+    flex-basis: 35%;
+    margin: 4px;
+    text-decoration: none;
+    font-size: 15px;
+    /* flex: 100%; */
+
+}
+
+.category_ctn .paginator a:hover{
+    color: var(--theme-ui-colors-white);
+    background-color: var(--theme-ui-colors-alpha);
+}
+
+.category_ctn .paginator div{
+  font-size: 15px;
+  vertical-align: middle;
+  padding: 4px;
+}
+
+.category_ctn .paginator div strong{
+  margin: 0 5px;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+
+    .category_ctn{
+        margin: 64px 0;
+    }
+
+    .category_ctn  h2 {
+        font-size: 34px;
+    }
+
+    .category_ctn h2 .badge{
+        font-size: 22px;
+    }
+    
+
+    .category_ctn  h6 {
+        margin: 0px 0px 5rem;
+        font-size: 16px;
+    }
+
+    
+.category_ctn .paginator{
+    margin: 56px auto;
+   
+}
+
+
+
+} 
+
+
+@media (min-width: 1024px) {
+    .category_ctn  h2 {
+        font-size: 48px;
+    }
+
+
+    .category_ctn h2 .badge{
+        font-size: 24px;
+    }
+
+    .category_ctn .paginator a{
+        font-size: 16px;
+        
+     }
+     
+     .category_ctn .paginator div{
+         font-size: 16px;
+     
+       }
+    
+
+}

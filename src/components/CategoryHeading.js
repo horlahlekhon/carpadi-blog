@@ -8,7 +8,7 @@ const CategoryHeading = ({category}) => {
   return (
     <div className="cat_header_ctn">
       <Link to={`/category/${category}`} className="title">
-        {capitalizeHeading}
+        {capitalizeHeading.replace(/-/g,' ')}
       </Link>
 
       <Link to={`/category/${category}`} className="view-more">
