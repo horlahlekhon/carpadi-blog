@@ -7,14 +7,22 @@ import Author from "./Author"
 import SmallCard from "./SmallCard"
 // import CategoryHeading from "./CategoryHeading"
 
-const CardComponent = ({cardType,data, removeBadge, removeLink}) => {
+const CardComponent = ({
+  cardType,
+  data,
+  removeBadge,
+  changeFlex,
+  smallCardData,
+}) => {
   const image = require("../images/programmer-thumb.webp").default
 
   const Div = styled.div`
     /* padding: 0 14px; */
 
     .card-div {
-      display:${(cardType === "case-studies" || cardType === "management") ? "none" : 'flex'} ;
+      display: ${cardType === "case-studies" || cardType === "management"
+        ? "none"
+        : "flex"};
       margin: 14px 0;
       background-color: var(--theme-ui-colors-contentBg);
       border-radius: 1rem;
@@ -62,17 +70,44 @@ const CardComponent = ({cardType,data, removeBadge, removeLink}) => {
     }
 
     .card-div .card-body .badge-div {
-      display:${removeBadge ? "none" : 'block'} ;
+      display: ${removeBadge ? "none" : "block"};
       /* display: block; */
       margin-bottom: 13.6px;
     }
 
     .card-div .card-body .badge {
       transition: all 250ms ease 0s;
-      background-color: ${cardType === "advert" ? "rgb(233, 216, 253)" : "rgb(254, 252, 191)"}  !important;
+      background-color: rgb(233, 216, 253) !important;
       color: rgb(45, 55, 72) !important;
       font-size: 10px;
       padding: 0.4rem 13.6px;
+    }
+
+    .card-div .card-body #case_bg {
+      background-color: rgb(198, 246, 213) !important;
+    }
+
+    .card-div .card-body #case_bg:hover {
+      color: var(--theme-ui-colors-omegaLight) !important;
+      background-color: var(--theme-ui-colors-omegaDark) !important;
+    }
+
+    .card-div .card-body #innov_bg {
+      background-color: rgb(254, 252, 191) !important;
+    }
+
+    .card-div .card-body #innov_bg:hover {
+      color: var(--theme-ui-colors-omegaLight) !important;
+      background-color: var(--theme-ui-colors-omegaDark) !important;
+    }
+
+    .card-div .card-body #manage_bg {
+      background-color: rgb(190, 227, 248) !important;
+    }
+
+    .card-div .card-body #manage_bg:hover {
+      color: var(--theme-ui-colors-omegaLight) !important;
+      background-color: var(--theme-ui-colors-omegaDark) !important;
     }
 
     .card-div .card-body .badge:hover {
@@ -126,24 +161,27 @@ const CardComponent = ({cardType,data, removeBadge, removeLink}) => {
     @media (min-width: 640px) {
       padding: 7px 15px;
 
-      .card-div{
+      .card-div {
         display: flex;
       }
 
-      .card-div:nth-child(2){
-        order: 3;
+      .card-div:nth-child(2) {
+        order: ${cardType === "case-studies" || cardType === "management"
+          ? "3"
+          : "unset"};
       }
 
       //change later....
-      .card-div:nth-child(3){
-        display: ${(cardType === "case-studies" || cardType === "management") ? "none" : 'flex'} ;
+      .card-div:nth-child(3) {
+        display: ${cardType === "case-studies" || cardType === "management"
+          ? "none"
+          : "flex"};
       }
 
       .card-div .card-body {
         padding: 29px;
       }
 
-      
       .card-div .card-body .badge {
         padding: 0.48rem 13.6px;
         font-size: 10.8px;
@@ -218,8 +256,6 @@ const CardComponent = ({cardType,data, removeBadge, removeLink}) => {
         align-items: start;
       }
 
-     
-
       .card-div .image-ctn {
         width: 60%;
         height: 283px;
@@ -237,12 +273,13 @@ const CardComponent = ({cardType,data, removeBadge, removeLink}) => {
 
     @media (min-width: 1024px) {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
 
       .card-div {
-        margin: 0 8px;
+        margin: 15px 8px 0;
         width: 348px;
-
+        flex: ${changeFlex};
         padding: 0.5rem 0;
         flex-direction: column !important;
       }
@@ -292,50 +329,67 @@ const CardComponent = ({cardType,data, removeBadge, removeLink}) => {
   `
   return (
     <div>
-
       <Div>
         {data.map(post => (
-            <Card key={post.id} className="card-div">
-            <Link className="image-ctn" to="">
+          <Card key={post.id} className="card-div">
+            <Link className="image-ctn" to={post.fields.slug}>
               <Card.Img src={image} />
             </Link>
-  
-            <Card.Body>
-              <Link className="badge-div" to={removeLink ? "" : `category/${post.frontmatter.category}` }>
 
-                <Badge>{ cardType === 'advert' ? "Advertising" : "Innovation"}</Badge>
+            <Card.Body>
+              <Link
+                className="badge-div"
+                to={`/category/${post.frontmatter.category}`}
+              >
+                {/* <Badge>{ cardType === 'advert' ? "Advertising" : "Innovation"}</Badge> */}
+
+                {post.frontmatter.category === "advertising" && (
+                  <Badge>Advertising</Badge>
+                )}
+                {post.frontmatter.category === "case-studies" && (
+                  <Badge id="case_bg">Case studies</Badge>
+                )}
+                {post.frontmatter.category === "innovation" && (
+                  <Badge id="innov_bg">Innovation</Badge>
+                )}
+                {post.frontmatter.category === "management" && (
+                  <Badge id="manage_bg">Management</Badge>
+                )}
               </Link>
-  
+
               <Card.Title>
                 <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
               </Card.Title>
-  
-              <Card.Text>
-                Markdown is a lightweight markup language with
-                plain-text-formatting syntax. Its design allows it to…
-              </Card.Text>
-  
+
+              <Card.Text>{post.excerpt}</Card.Text>
+
               <div className="auth_link">
-                <Link to="">{post.frontmatter.author}</Link>
+                <Link
+                  to={`/author/${post.fields.author.name
+                    .toLowerCase()
+                    .replace(" ", "-")}`}
+                >
+                  {post.fields.author.name}
+                </Link>
                 <span>{post.frontmatter.date}</span>
               </div>
-  
-              <Author 
-              authorName={post.frontmatter.author}
-              date={post.frontmatter.date}
+
+              <Author
+                authorName={post.fields.author.name}
+                date={post.frontmatter.date}
+                readTime={post.frontmatter.readtime}
               />
-  
+
               {/* <Button variant="primary">Go somewhere</Button> */}
             </Card.Body>
-          </Card>   
-
+          </Card>
         ))}
-      
-        <div>
-        {(cardType === "case-studies" || cardType === "management") && 
-        <SmallCard cardType={cardType} />}
-        </div>
 
+        <div>
+          {(cardType === "case-studies" || cardType === "management") && (
+            <SmallCard data={smallCardData} cardType={cardType} />
+          )}
+        </div>
       </Div>
     </div>
   )
@@ -345,5 +399,5 @@ export default CardComponent
 
 CardComponent.defaultProps = {
   cardType: "advert",
-  removeLink: false
+  changeFlex: "1",
 }

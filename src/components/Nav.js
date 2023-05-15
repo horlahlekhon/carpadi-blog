@@ -116,7 +116,7 @@ export default function Nav({ dark, setDark, modalShow, input, removeTopics }) {
                         <Link to="/category/advertising">Advertising</Link>
                       </p>
                       <p>
-                        <Link to="/category/case%20studies">Case Studies</Link>
+                        <Link to="/category/case-studies">Case Studies</Link>
                       </p>
                       <p>
                         <Link to="/category/innovation">Innovation</Link>

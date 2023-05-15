@@ -137,6 +137,7 @@
 
     .contact_ctn .right-side-bar .advertise .contact_info{
         color: var(--theme-ui-colors-text);
+        margin: 3px 0;
     }
 
     .contact_ctn .right-side-bar .advertise .contact_info div{
@@ -146,7 +147,6 @@
         cursor: pointer;
         -webkit-transition: all 250ms ease;
         transition: all 250ms ease;
-        background-color: var(--theme-ui-colors-omegaLighter);
         margin: 0 10px 0 0;
      }
  

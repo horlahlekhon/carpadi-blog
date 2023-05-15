@@ -3,12 +3,23 @@ import React from "react"
 import twitterLogo from "../images/twitter.svg"
 import instagramLogo from "../images/instagram.svg"
 import worldLogo from "../images/world.svg"
+import "../styles/team.css"
 
-function Team() {
+function Team({
+  name,
+  job,
+  bio,
+  expertise,
+  ig,
+  twitter,
+  site,
+  removeButton
+
+}) {
   const author_image = require("../images/jane-smith-lg.webp").default
   return (
     <div className="team_ctn">
-      <Link to="" className="view_posts">
+      <Link to={`/author/${(name).toLowerCase().replace(" ", "-")}`} className="view_posts" style={{display: `${removeButton}`}}>
         View Posts
       </Link>
 
@@ -21,31 +32,33 @@ function Team() {
       </section>
 
       <div className="author_text">
-        <Link to="">Jane Smith</Link>
-        <p>Creative Designer</p>
+        <Link to={`/author/${(name).toLowerCase().replace(" ", "-")}`}>{name}</Link>
+        <p>{job}</p>
         <span>
-          Sed commodo, est quis maximus fermentum, massa ipsum euismod neque, in
-          varius risus tellus quis lacus. Sed ac bibendum odio.
+         {bio}
         </span>
       </div>
 
       <div className="author_other_info">
         <ul>
           <h2>Expertise</h2>
-          <li>Advertising</li>
+          {expertise.map(exp => (
+            <li key={Math.random()}>{exp}</li>
+          ))}
+          {/* <li>Advertising</li>
           <li>Business</li>
-          <li>Designer</li>
+          <li>Designer</li> */}
         </ul>
         <ul>
           <h2>Social Media</h2>
-          <Link to="">
+          <Link to={ig}>
           <img src={instagramLogo} alt="twitter"/>
            
             instagram</Link>
-          <Link to="">
+          <Link to={twitter}>
           <img src={twitterLogo} alt="instagram"/>
             twitter</Link>
-          <Link to="">
+          <Link to={site}>
           <img src={worldLogo} alt="world"/>
             website</Link>
         </ul>
@@ -56,3 +69,8 @@ function Team() {
 }
 
 export default Team
+
+
+Team.defaultProps = {
+  removeButton: "inline-block"
+}

@@ -11,11 +11,17 @@ import Card from "../components/Card"
 import SmallCard from "../components/SmallCard"
 import CategoryHeading from "../components/CategoryHeading"
 
-
 const BlogIndex = ({ data }) => {
   const slidesPosts = data.slidesData.nodes
   const headerPosts = data.headerData.nodes
   const advertBigDataPosts = data.advertBigCardData.nodes
+  const advertSmallDataPosts = data.advertSmallCardData.nodes
+  const caseStudiesBigDataPosts = data.caseStudiesBigCardData.nodes
+  const caseStudiesSmallDataPosts = data.caseStudiesSmallCardData.nodes
+  const innovationBigDataPosts = data.innovationBigCardData.nodes
+  const innovationSmallDataPosts = data.innovationSmallCardData.nodes
+  const managementBigDataPosts = data.managementBigCardData.nodes
+  const managementSmallDataPosts = data.managementSmallCardData.nodes
 
   // if (posts.length === 0) {
   //   return (
@@ -29,16 +35,15 @@ const BlogIndex = ({ data }) => {
   //   )
   // }
 
-
   return (
     <Layout removeTopics={false}>
       <CategoryMenu />
 
       <Row style={{ margin: "0" }}>
         <Col md={9} style={{ padding: "0 1px" }}>
-          <Slides slidesData={slidesPosts}/>
+          <Slides slidesData={slidesPosts} />
 
-          <SmallCard headerData={headerPosts}/>
+          <SmallCard data={headerPosts} />
 
           {/* <Row style={{ margin: "0" }}>
               <Col xs={12}>
@@ -148,14 +153,13 @@ const BlogIndex = ({ data }) => {
         </Col>
       </Row>
 
-      <CategoryHeading category="advertising"/>
-      <div style={{padding: "0 14px"}}>
-       <Card data={advertBigDataPosts} cardType="advert"/>
+      <CategoryHeading category="advertising" />
+      <div style={{ padding: "0 14px" }}>
+        <Card data={advertBigDataPosts} cardType="advert" />
       </div>
-     
-      <SmallCard cardType="advert" />
 
-      
+      <SmallCard data={advertSmallDataPosts} cardType="advert" />
+
       {/* <div className="analysis">
         <div>
           <h2>The latest IT market analysis report - May 2020</h2>
@@ -165,28 +169,33 @@ const BlogIndex = ({ data }) => {
         <Link to="">Download Report</Link>
       </div> */}
 
-
-      <CategoryHeading category="case-studies"/>
-      <div style={{padding: "0 14px"}}>
-      <Card data={advertBigDataPosts} cardType="case-studies" removeBadge={true}/>
+      <CategoryHeading category="case-studies" />
+      <div style={{ padding: "0 14px" }}>
+        <Card
+        smallCardData={caseStudiesSmallDataPosts}
+          data={caseStudiesBigDataPosts}
+          cardType="case-studies"
+          removeBadge={true}
+        />
       </div>
       {/* <SmallCard cardType="case-studies" /> */}
-      
 
-      {/* <CategoryHeading category="innovation"/>
+      <CategoryHeading category="innovation"/>
       <div style={{padding: "0 14px"}}>
-      <Card cardType="innovation"/>
+      <Card data={innovationBigDataPosts} cardType="innovation"/>
       </div>
-      <SmallCard cardType="innovation" />
+      <SmallCard data={innovationSmallDataPosts} cardType="innovation" />
       
 
       <CategoryHeading category="management"/>
       <div style={{padding: "0 14px"}}>
-      <Card cardType="management" removeBadge={true}/>
-      </div> */}
-
-
-
+      <Card 
+      smallCardData={managementSmallDataPosts} 
+      data={managementBigDataPosts} 
+      cardType="management" 
+      removeBadge={true}
+      />
+      </div>
 
       <div className="newsletter">
         <div className="plane">
@@ -211,47 +220,7 @@ const BlogIndex = ({ data }) => {
         <button type="submit">Subscribe</button>
       </div>
 
-      {/* <Bio /> */}
-      <ol style={{ listStyle: `none` }}>
-        {slidesPosts.map(post => {
-          const title = {
-            ...post,
-            title:
-              post.frontmatter.title === "" ? "No img" : post.frontmatter.title,
-          }
 
-          console.log(title.title)
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title.title}</span>
-
-                     {title === "" ? 'no img' : "there is a img"}
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
     </Layout>
   )
 }
@@ -266,66 +235,255 @@ export default BlogIndex
 export const Head = () => <Seo title="Home" />
 
 export const pageQuery = graphql`
-query HomePage{
-  slidesData: allMarkdownRemark(sort: {frontmatter: {date: DESC}},limit: 3) {
-    nodes {
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        readtime
-        featuredImg {
-          relativePath
-        }
-        author
-      }
-      fields {
-        slug
-      }
-      id
-    }
-  }
-
-  headerData: allMarkdownRemark(sort: {frontmatter: {date: DESC}}, limit: 4) {
-    nodes {
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        readtime
-        author
-        category
-        thumbImg {
-          relativePath
-        }
-      }
-      fields {
-        slug
-      }
-      id
-    }
-  }
-
-  advertBigCardData: allMarkdownRemark(
-    filter: {frontmatter: {category: {eq: "advertising"}}}
-    sort: {frontmatter: {date: DESC}}, limit: 3
+  query HomePage {
+    slidesData: allMarkdownRemark(
+      sort: { frontmatter: { date: DESC } }
+      limit: 3
     ) {
-    nodes {
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        readtime
-        author
-        category
-        thumbImg {
-          relativePath
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          readtime
+          featuredImg {
+            relativePath
+          }
         }
+        excerpt
+        fields {
+          slug
+          author {
+            name
+          }
+        }
+        id
       }
-      fields {
-        slug
-      }
-      id
     }
+
+    headerData: allMarkdownRemark(
+      sort: { frontmatter: { date: DESC } }
+      limit: 4
+    ) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          readtime
+          category
+          thumbImg {
+            relativePath
+          }
+        }
+        excerpt
+        fields {
+          slug
+          author {
+            name
+          }
+        }
+        id
+      }
+    }
+
+    advertBigCardData: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "advertising" } } }
+      sort: { frontmatter: { date: DESC } }
+      limit: 3
+    ) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          readtime
+          category
+          thumbImg {
+            relativePath
+          }
+        }
+        excerpt
+        fields {
+          slug
+          author {
+            name
+          }
+        }
+        id
+      }
+    }
+
+    advertSmallCardData: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "advertising" } } }
+      sort: { frontmatter: { date: DESC } }
+      skip: 3
+      limit: 3
+    ) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          readtime
+          category
+        }
+        fields {
+          slug
+          author {
+            name
+          }
+        }
+        id
+      }
+    }
+
+    caseStudiesBigCardData: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "case-studies" } } }
+      sort: { frontmatter: { date: DESC } }
+      limit: 2) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          readtime
+          category
+          thumbImg {
+            relativePath
+          }
+        }
+        excerpt
+        fields {
+          slug
+          author {
+            name
+          }
+        }
+        id
+      }
+    }
+
+
+    caseStudiesSmallCardData: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "case-studies" } } }
+      sort: { frontmatter: { date: DESC } }
+      skip: 2
+      limit: 3
+      ) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          readtime
+          category
+        }
+        fields {
+          slug
+          author {
+            name
+          }
+        }
+        id
+      }
+    }
+
+    innovationBigCardData: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "innovation" } } }
+      sort: { frontmatter: { date: DESC } }
+      limit: 3
+    ) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          readtime
+          category
+          thumbImg {
+            relativePath
+          }
+        }
+        excerpt
+        fields {
+          slug
+          author {
+            name
+          }
+        }
+        id
+      }
+    }
+
+    innovationSmallCardData: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "innovation" } } }
+      sort: { frontmatter: { date: DESC } }
+      skip: 3
+      limit: 3
+    ) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          readtime
+          category
+        }
+        fields {
+          slug
+          author {
+            name
+          }
+        }
+        id
+      }
+    }
+
+    managementBigCardData: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "management" } } }
+      sort: { frontmatter: { date: DESC } }
+      limit: 2) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          readtime
+          category
+          thumbImg {
+            relativePath
+          }
+        }
+        excerpt
+        fields {
+          slug
+          author {
+            name
+          }
+        }
+        id
+      }
+    }
+
+
+    managementSmallCardData: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "management" } } }
+      sort: { frontmatter: { date: DESC } }
+      skip: 2
+      limit: 3
+      ) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          readtime
+          category
+        }
+        fields {
+          slug
+          author {
+            name
+          }
+        }
+        id
+      }
+    }
+
+
+
+
+
   }
-
-
-}
 `

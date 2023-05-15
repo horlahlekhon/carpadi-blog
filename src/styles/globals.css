@@ -564,6 +564,7 @@ body.dark {
 
   #case-studies-ctn {
     flex-direction: column !important;
+    margin: 20px 0 0;
   }
 
   .newsletter {

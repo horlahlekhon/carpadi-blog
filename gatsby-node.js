@@ -6,10 +6,13 @@
 
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { loadAuthors } = require("./authors")
 
 // Define the template for blog post
 const blogPost = path.resolve(`./src/templates/blog-post.js`)
 const categoryPost = path.resolve("./src/templates/category.js")
+const authorPosts = path.resolve("./src/templates/author-posts.js")
+const tagPosts = path.resolve("./src/templates/tag-posts.js")
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -25,9 +28,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id
           fields {
             slug
+            author {
+              name
+            }
           }
           frontmatter {
             category
+            tags
           }
         }
       }
@@ -44,10 +51,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.allMarkdownRemark.nodes
 
-  const postsPerPage = 3
-  const numberOfCategoryPosts = posts.length
-  const numberOfPages = Math.ceil(numberOfCategoryPosts / postsPerPage)
-
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
@@ -62,6 +65,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: blogPost,
         context: {
           id: post.id,
+          slug: post.fields.slug,
+          title: post.frontmatter.title,
+          category: post.frontmatter.category,
           previousPostId,
           nextPostId,
         },
@@ -69,46 +75,189 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   }
 
-  posts.forEach((post, index) => {
-  for (let pageIndex = 0; pageIndex < numberOfPages; pageIndex++) {
-    const pageNumber = pageIndex + 1
-    const path = pageIndex === 0 ? `/category/${post.frontmatter.category}` : `/category/${post.frontmatter.category}/${pageNumber}`
-    const skip = pageIndex * postsPerPage
 
-    function getNextPageLink() {
-      if (pageNumber < numberOfPages) {
-        return `${pageNumber + 1}`
+  //this is for category template
+  posts.forEach((post, index) => {
+    const categoryPostsPerPage = 6
+    const numberOfCategoryPosts = post.frontmatter.category.length
+    const numberOfPages = Math.ceil(
+      numberOfCategoryPosts / categoryPostsPerPage
+    )
+
+    for (let pageIndex = 0; pageIndex < numberOfPages; pageIndex++) {
+      const pageNumber = pageIndex + 1
+      const path =
+        pageIndex === 0
+          ? `/category/${post.frontmatter.category}`
+          : `/category/${post.frontmatter.category}/${pageNumber}`
+      const skip = pageIndex * categoryPostsPerPage
+
+      function getNextPageLink() {
+        if (pageNumber < numberOfPages) {
+          return `/category/${post.frontmatter.category}/${pageNumber + 1}`
+        }
+
+        return null
       }
 
-      return null
+      function getPreviousPageLink() {
+        if (!pageIndex) return null
+
+        if (pageIndex === 1) return `/category/${post.frontmatter.category}`
+        //else
+        return `/category/${post.frontmatter.category}/${pageIndex}`
+      }
+
+      createPage({
+        path,
+        component: categoryPost,
+        context: {
+          limit: categoryPostsPerPage,
+          skip,
+          category: post.frontmatter.category,
+          next: getNextPageLink(),
+          prev: getPreviousPageLink(),
+          totalPage: numberOfPages,
+          currentPage: pageNumber,
+        },
+      })
     }
-
-    function getPreviousPageLink() {
-      if (!pageIndex) return null
-
-      if (pageIndex === 1) return `/category/${post.frontmatter.category}`
-      //else
-      return `${pageIndex}`
-    }
-
-    createPage({
-      // path: "/projects/" + post.frontmatter.category,
-      path,
-      component: categoryPost,
-      context: {
-        limit: postsPerPage,
-        skip,
-        category: post.frontmatter.category,
-        next: getNextPageLink(),
-        prev: getPreviousPageLink(),
-        totalPage: numberOfPages,
-        currentPage: pageNumber
-      },
-      // context: { category: post.frontmatter.category },
-    })
-  }
   })
 
+
+
+
+  //this is for author post template
+  posts.forEach((post, index) => {
+    const authorName = (post.fields.author.name).toLowerCase().replace(" ", "-");
+    const authorPostsPerPage = 6
+    const numberOfAuthorPosts = post.fields.author.name.length
+    const numberOfPages = Math.ceil(
+      numberOfAuthorPosts / authorPostsPerPage
+    )
+
+    for (let pageIndex = 0; pageIndex < numberOfPages; pageIndex++) {
+      const pageNumber = pageIndex + 1
+      const path =
+        pageIndex === 0
+          ? `/author/${authorName}`
+          : `/author/${authorName}/${pageNumber}`
+      const skip = pageIndex * authorPostsPerPage
+
+      function getNextPageLink() {
+        if (pageNumber < numberOfPages) {
+          return `/author/${authorName}/${pageNumber + 1}`
+        }
+
+        return null
+      }
+
+      function getPreviousPageLink() {
+        if (!pageIndex) return null
+
+        if (pageIndex === 1) return `/author/${authorName}`
+        //else
+        return `/author/${authorName}/${pageIndex}`
+      }
+
+      createPage({
+        path,
+        component: authorPosts,
+        context: {
+          limit: authorPostsPerPage,
+          skip,
+          authorName: post.fields.author.name,
+          next: getNextPageLink(),
+          prev: getPreviousPageLink(),
+          totalPage: numberOfPages,
+          currentPage: pageNumber,
+        },
+      })
+    }
+  })
+
+  const postsByTag = {}  
+
+
+  //this is for tag post template
+  posts.forEach((post, index) => {
+   
+    if (post.frontmatter.tags) {
+      post.frontmatter.tags.forEach(tag => {
+        if (!postsByTag[tag]) {
+          postsByTag[tag] = {
+            count: 0,
+            posts: [],
+          };
+        }
+
+        postsByTag[tag].count++;
+        postsByTag[tag].posts.push(post);
+      });
+    }
+
+    const tagCounts = {};
+
+    Object.keys(postsByTag).forEach(tagName => {
+      if (!tagCounts[tagName]) {
+        tagCounts[tagName] = 0;
+      }
+    
+      tagCounts[tagName] += postsByTag[tagName].count;
+    });
+
+    Object.keys(tagCounts).forEach(tagName  => {
+      const totalCount = tagCounts[tagName];
+      const tagPostsPerPage = 6
+      const numberOfTagPosts = totalCount;
+
+      const numberOfPages = Math.ceil(
+        numberOfTagPosts / tagPostsPerPage
+      )
+  
+      for (let pageIndex = 0; pageIndex < numberOfPages; pageIndex++) {
+        const pageNumber = pageIndex + 1
+        const path =
+          pageIndex === 0
+            ? `/tag/${tagName}`
+            : `/tag/${tagName}/page/${pageNumber}`
+        const skip = pageIndex * tagPostsPerPage;
+  
+        
+        function getNextPageLink() {
+          if (pageNumber < numberOfPages) {
+            return `/tag/${tagName}/page/${pageNumber + 1}`
+          }
+  
+          return null
+        }
+  
+        function getPreviousPageLink() {
+          if (!pageIndex) return null
+  
+          if (pageIndex === 1) return `/tag/${tagName}`
+          //else
+          return `/tag/${tagName}/page/${pageIndex}`
+        }
+  
+        createPage({
+          path,
+          component: tagPosts,
+          context: {
+            limit: tagPostsPerPage,
+            skip,
+            tag: tagName,
+            next: getNextPageLink(),
+            prev: getPreviousPageLink(),
+            totalPage: numberOfPages,
+            currentPage: pageNumber,
+          },
+        })
+      }
+
+    })
+   
+  })
 }
 
 /**
@@ -119,12 +268,38 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
+    const { author } = node.frontmatter
+    const authors = loadAuthors()
+    const authorData = authors[author]
+    
 
     createNodeField({
       name: `slug`,
       node,
       value,
     })
+
+    if (authorData) {
+      createNodeField({
+        node,
+        name: "author",
+        value: authorData,
+      })
+    }
+  }
+
+  
+
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode })
+    
+
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+
   }
 }
 
@@ -142,18 +317,27 @@ exports.createSchemaCustomization = ({ actions }) => {
   // blog posts are stored inside "content/blog" instead of returning an error
   createTypes(`
     type SiteSiteMetadata {
-      author: Author
       siteUrl: String
-      social: Social
+      description: String
     }
+
+    type Frontmatter {
+      title: String
+      date: Date @dateformat
+      author: Author
+    }
+
 
     type Author {
+      id: String
       name: String
-      summary: String
-    }
-
-    type Social {
+      job: String
+      bio: String
+      expertise: String
+      ig: String
       twitter: String
+      site: String
+
     }
 
     type MarkdownRemark implements Node {
@@ -161,12 +345,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       fields: Fields
     }
 
-    type Frontmatter {
-      title: String
-      description: String
-      date: Date @dateformat
-    }
-
+    
     type Fields {
       slug: String
     }

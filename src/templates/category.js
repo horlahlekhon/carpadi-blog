@@ -4,6 +4,8 @@ import { Badge } from "react-bootstrap"
 import Layout from "../components/Layout"
 import CardComponent from "../components/Card"
 import { Link, graphql } from "gatsby"
+import Seo from "../components/Seo"
+import Fade from "react-reveal/Fade"
 
 const Category = ({ data, pageContext }) => {
   const categoryPosts = data.allMarkdownRemark.nodes
@@ -11,17 +13,24 @@ const Category = ({ data, pageContext }) => {
   const next = pageContext.next
   const totalPage = pageContext.totalPage
   const currentPage = pageContext.currentPage
+  const currentCategory = pageContext.category
 
   return (
     <Layout>
       <div className="category_ctn">
-        <h2>
-          Advertising <Badge>{data.allMarkdownRemark.totalCount}</Badge>
-        </h2>
-        <h6>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore.
-        </h6>
+        <Fade top>
+          <h2>
+            {(
+              currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1)
+            ).replace("-", " ")}{" "}
+            <Badge>{data.allMarkdownRemark.totalCount}</Badge>
+          </h2>
+          <h6>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore.
+          </h6>
+        </Fade>
+
         {/* 
         {categoryPosts.map(post => (
 
@@ -31,9 +40,18 @@ const Category = ({ data, pageContext }) => {
          
         ) 
           )} */}
-        <CardComponent data={categoryPosts} removeLink={true}/>
+        <Fade bottom>
+          <CardComponent data={categoryPosts} changeFlex="0 0 31%" />
+        </Fade>
 
-        <div className="paginator">
+        <div
+          className="paginator"
+          style={{
+            display: `${
+              data.allMarkdownRemark.totalCount < 7 ? "none" : "flex"
+            }`,
+          }}
+        >
           <Link
             to={prev}
             className="prev_btn"
@@ -42,7 +60,7 @@ const Category = ({ data, pageContext }) => {
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 320 512"
               height="1em"
               width="1em"
@@ -69,7 +87,7 @@ const Category = ({ data, pageContext }) => {
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 320 512"
               height="1em"
               width="1em"
@@ -86,14 +104,22 @@ const Category = ({ data, pageContext }) => {
 
 export default Category
 
+export const Head = ({ pageContext }) => (
+  <Seo
+    title={(
+      pageContext.category.charAt(0).toUpperCase() +
+      pageContext.category.slice(1)
+    ).replace("-", " ")}
+  />
+)
+
 export const query = graphql`
   query CategoryPage($limit: Int!, $skip: Int!, $category: String!) {
     allMarkdownRemark(
-      filter: {frontmatter: {category: {eq: $category}}}
+      filter: { frontmatter: { category: { eq: $category } } }
       sort: { frontmatter: { date: DESC } }
       limit: $limit
       skip: $skip
-
     ) {
       totalCount
       nodes {
@@ -101,15 +127,18 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           readtime
-          author
           category
           tags
           thumbImg {
             relativePath
           }
         }
+        excerpt
         fields {
           slug
+          author {
+            name
+          }
         }
         id
       }

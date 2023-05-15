@@ -256,7 +256,7 @@ const Slides = ({ slidesData }) => {
               </Link>
 
               <Author
-                authorName={post.frontmatter.author}
+                authorName={post.fields.author.name}
                 date={post.frontmatter.date}
                 readTime={post.frontmatter.readtime}
               />

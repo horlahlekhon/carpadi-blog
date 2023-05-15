@@ -80,8 +80,8 @@ const Footer = ({ dark }) => {
           <div>
             <p>Quick Links</p>
             <Link to="">Advertise with us</Link>
-            <Link to="">About Us</Link>
-            <Link to="">Contact Us</Link>
+            <Link to="/authors">About Us</Link>
+            <Link to="/contact">Contact Us</Link>
           </div>
         </div>
 

@@ -72,7 +72,7 @@ const Layout = ({ children, removeTopics }) => {
           <h2>Advertising</h2>
 
           <div className="blog-card">
-            <Link to="">
+            <Link to="/">
               Getting to Grips with Digital Advertising Best Practice Guide
             </Link>
             <p>

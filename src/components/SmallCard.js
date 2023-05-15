@@ -6,7 +6,7 @@ import styled from "styled-components"
 import { FaRegClock, FaTasks } from "react-icons/fa"
 import { AiOutlineFileText } from "react-icons/ai"
 
-const SmallCard = ({ cardType,headerData, removeBadge }) => {
+const SmallCard = ({ cardType, data, removeBadge }) => {
   /* when cardtype === advert
       then set image to null
       padding
@@ -27,6 +27,19 @@ const SmallCard = ({ cardType,headerData, removeBadge }) => {
 
   const Div = styled.div`
     padding: 0 14px;
+
+    #case_bg {
+      background-color: rgb(198, 246, 213) !important;
+    }
+    
+
+    #innov_bg {
+      background-color: rgb(254, 252, 191) !important;
+    }
+
+    #manage_bg {
+      background-color: rgb(190, 227, 248) !important;
+    }
 
     .small-card-div {
       margin: 14px 0;
@@ -144,18 +157,13 @@ const SmallCard = ({ cardType,headerData, removeBadge }) => {
       display: none;
     }
 
-
     #advert-card-div .card-body .badge-div {
-      display:${removeBadge ? "none" : 'block'} !important;
-
+      display: ${removeBadge ? "none" : "block"} !important;
     }
-    
 
     #advert-card-div .card-body .badge {
       transition: all 250ms ease 0s;
-      background-color: ${cardType === "advert"
-        ? "rgb(233, 216, 253)"
-        : "rgb(254, 252, 191)"} !important;
+      background-color: rgb(233, 216, 253);
       color: rgb(45, 55, 72) !important;
       font-size: 10px;
       padding: 0.4rem 13.6px;
@@ -180,7 +188,7 @@ const SmallCard = ({ cardType,headerData, removeBadge }) => {
       align-items: center;
       margin: 0;
       width: 70%;
-      background-color: ${cardType === "case-studies" ? '#c6f6d5' : '#bee3f8'};
+      background-color: ${cardType === "case-studies" ? "#c6f6d5" : "#bee3f8"};
       color: #2d3748;
       height: 100%;
       border-radius: 0.5rem;
@@ -275,7 +283,7 @@ const SmallCard = ({ cardType,headerData, removeBadge }) => {
     }
 
     @media (min-width: 640px) {
-      display: ${removeBadge ? "block" : 'flex'};
+      display: ${removeBadge ? "block" : "flex"};
       justify-content: center;
       flex-wrap: wrap;
       padding: 0 7px;
@@ -474,223 +482,133 @@ const SmallCard = ({ cardType,headerData, removeBadge }) => {
     <div>
       {cardType === "default" && (
         <Div>
-          {headerData.map(post => (
+          {data.map(post => (
             <Card key={post.id} className="small-card-div">
-            <Link className="image-ctn" to="">
-              <Card.Img src={require(`../images/${post.frontmatter.thumbImg.relativePath}`).default} />
-            </Link>
-
-            <Card.Body>
-              <Link className="badge-div" to={`category/${post.frontmatter.category}`}>
-                <Badge>{(post.frontmatter.category.charAt(0).toUpperCase() + post.frontmatter.category.slice(1)).replace(/-/g,' ')}</Badge>
+              <Link className="image-ctn"  to={post.fields.slug}>
+                <Card.Img
+                  src={
+                    require(`../images/${post.frontmatter.thumbImg.relativePath}`)
+                      .default
+                  }
+                />
               </Link>
 
-              <Card.Title>
-                <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-              </Card.Title>
+              <Card.Body>
+                <Link
+                  className="badge-div"
+                  to={`category/${post.frontmatter.category}`}
+                >
+                  {post.frontmatter.category === "advertising" && (
+                    <Badge>Advertising</Badge>
+                  )}
+                  {post.frontmatter.category === "case-studies" && (
+                    <Badge id="case_bg">Case studies</Badge>
+                  )}
+                  {post.frontmatter.category === "innovation" && (
+                    <Badge id="innov_bg">Innovation</Badge>
+                  )}
+                  {post.frontmatter.category === "management" && (
+                    <Badge id="manage_bg">Management</Badge>
+                  )}
+                </Link>
 
-              <div className="auth_link">
-                <Link to="">{post.frontmatter.author}</Link>
-                <span>
-                {post.frontmatter.date}・ <FaRegClock /> {post.frontmatter.readtime}
-                </span>
-              </div>
+                <Card.Title>
+                  <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+                </Card.Title>
 
-              {/* <Author /> */}
+                <div className="auth_link">
+                <Link to={`/author/${(post.fields.author.name).toLowerCase().replace(" ", "-")}`}>{post.fields.author.name}</Link>
+                  <span>
+                    {post.frontmatter.date}・ <FaRegClock />{" "}
+                    {post.frontmatter.readtime}
+                  </span>
+                </div>
 
-              {/* <Button variant="primary">Go somewhere</Button> */}
-            </Card.Body>
-          </Card>
+                {/* <Author /> */}
 
+                {/* <Button variant="primary">Go somewhere</Button> */}
+              </Card.Body>
+            </Card>
           ))}
-          
-
-
         </Div>
       )}
 
       {(cardType === "advert" || cardType === "innovation") && (
         <Div id="advert-ctn" style={{ padding: "0 14px" }}>
-          <Card className="small-card-div" id="advert-card-div">
-            <Card.Body>
-              <Link className="badge-div" to="">
-                <Badge>
-                  {cardType === "advert" ? "Advertising" : "Innovation"}
-                </Badge>
-              </Link>
-
-              <Card.Title>
-                <Link to="">
-                  Four ways to unlock the true power of TV through programmatic
+          {data.map(post => (
+            <Card key={post.id} className="small-card-div" id="advert-card-div">
+              <Card.Body>
+                <Link
+                  className="badge-div"
+                  to={`category/${post.frontmatter.category}`}
+                >
+                  {post.frontmatter.category === "advertising" && (
+                    <Badge>Advertising</Badge>
+                  )}
+                  {post.frontmatter.category === "innovation" && (
+                    <Badge id="innov_bg">Innovation</Badge>
+                  )}
                 </Link>
-              </Card.Title>
 
-              <div className="auth_link">
-                <Link to="">Jane Smith</Link>
-                <span>
-                  May 15, 2021
-                  <span className="removed">
-                    ・ <FaRegClock /> 1 min
+                <Card.Title>
+                  <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+                </Card.Title>
+
+                <div className="auth_link">
+                <Link to={`/author/${(post.fields.author.name).toLowerCase().replace(" ", "-")}`}>{post.fields.author.name}</Link>
+                  <span>
+                    {post.frontmatter.date}
+                    <span className="removed">
+                      ・ <FaRegClock /> {post.frontmatter.readtime}
+                    </span>
                   </span>
-                </span>
-              </div>
-            </Card.Body>
-          </Card>
-          <Card className="small-card-div" id="advert-card-div">
-            <Card.Body>
-              <Link className="badge-div" to="">
-                <Badge>
-                  {cardType === "advert" ? "Advertising" : "Innovation"}
-                </Badge>
-              </Link>
-
-              <Card.Title>
-                <Link to="">
-                  Four ways to unlock the true power of TV through programmatic
-                </Link>
-              </Card.Title>
-
-              <div className="auth_link">
-                <Link to="">Jane Smith</Link>
-                <span>
-                  May 15, 2021
-                  <span className="removed">
-                    ・ <FaRegClock /> 1 min
-                  </span>
-                </span>
-              </div>
-            </Card.Body>
-          </Card>
-          <Card className="small-card-div" id="advert-card-div">
-            <Card.Body>
-              <Link className="badge-div" to="">
-                <Badge>
-                  {cardType === "advert" ? "Advertising" : "Innovation"}
-                </Badge>
-              </Link>
-
-              <Card.Title>
-                <Link to="">
-                  Four ways to unlock the true power of TV through programmatic
-                </Link>
-              </Card.Title>
-
-              <div className="auth_link">
-                <Link to="">Jane Smith</Link>
-                <span>
-                  May 15, 2021
-                  <span className="removed">
-                    ・ <FaRegClock /> 1 min
-                  </span>
-                </span>
-              </div>
-
-              {/* <Author /> */}
-
-              {/* <Button variant="primary">Go somewhere</Button> */}
-            </Card.Body>
-          </Card>
+                </div>
+              </Card.Body>
+            </Card>
+          ))}
         </Div>
       )}
 
       {(cardType === "case-studies" || cardType === "management") && (
         <Div id="case-studies-ctn" style={{ padding: "0" }}>
-          <Card className="small-card-div" id="case-card-div">
-          <Link className="image-ctn" to="">
-              <div className="file-type">
-                {cardType === "case-studies" ? 
-                <AiOutlineFileText /> : <FaTasks />
-              }
-                
-                <p>{(cardType.charAt(0).toUpperCase() + cardType.slice(1)).replace(/-/g,' ')}</p>
-              </div>
+          {data.map(post => (
+            <Card key={post.id} className="small-card-div" id="case-card-div">
+              <Link className="image-ctn" to={post.fields.slug}>
+                <div className="file-type">
+                  {cardType === "case-studies" ? (
+                    <AiOutlineFileText />
+                  ) : (
+                    <FaTasks />
+                  )}
 
-              <div className="image-bg"></div>
-            </Link>
+                  <p>
+                    {(
+                      post.frontmatter.category.charAt(0).toUpperCase() +
+                      post.frontmatter.category.slice(1)
+                    ).replace(/-/g, " ")}
+                  </p>
+                </div>
 
-            <Card.Body>
-              <Card.Title>
-                <Link to="">
-                  Broadcaster Saves Hours of Admin with Innovative Digital Audio
-                  Solution
-                </Link>
-              </Card.Title>
+                <div className="image-bg"></div>
+              </Link>
 
-              <div className="auth_link">
-                <Link to="">Jane Smith</Link>
-                <span>
-                  May 15, 2021
-                  <span className="removed">
-                    ・ <FaRegClock /> 1 min
+              <Card.Body>
+                <Card.Title>
+                  <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+                </Card.Title>
+
+                <div className="auth_link">
+                  <Link to={`/author/${(post.fields.author.name).toLowerCase().replace(" ", "-")}`}>{post.fields.author.name}</Link>
+                  <span>
+                    {post.frontmatter.date}
+                    <span className="removed">
+                      ・ <FaRegClock /> {post.frontmatter.readtime}
+                    </span>
                   </span>
-                </span>
-              </div>
-            </Card.Body>
-          </Card>
-          <Card className="small-card-div" id="case-card-div">
-          <Link className="image-ctn" to="">
-              <div className="file-type">
-                {cardType === "case-studies" ? 
-                <AiOutlineFileText /> : <FaTasks />
-              }
-                
-                <p>{(cardType.charAt(0).toUpperCase() + cardType.slice(1)).replace(/-/g,' ')}</p>
-              </div>
-
-              <div className="image-bg"></div>
-            </Link>
-
-            <Card.Body>
-              <Card.Title>
-                <Link to="">
-                  Broadcaster Saves Hours of Admin with Innovative Digital Audio
-                  Solution
-                </Link>
-              </Card.Title>
-
-              <div className="auth_link">
-                <Link to="">Jane Smith</Link>
-                <span>
-                  May 15, 2021
-                  <span className="removed">
-                    ・ <FaRegClock /> 1 min
-                  </span>
-                </span>
-              </div>
-            </Card.Body>
-          </Card>
-          <Card className="small-card-div" id="case-card-div">
-            <Link className="image-ctn" to="">
-              <div className="file-type">
-                {cardType === "case-studies" ? 
-                <AiOutlineFileText /> : <FaTasks />
-              }
-                
-                <p>{(cardType.charAt(0).toUpperCase() + cardType.slice(1)).replace(/-/g,' ')}</p>
-              </div>
-
-              <div className="image-bg"></div>
-            </Link>
-
-            <Card.Body>
-              <Card.Title>
-                <Link to="">
-                  Broadcaster Saves Hours of Admin with Innovative Digital Audio
-                  Solution
-                </Link>
-              </Card.Title>
-
-              <div className="auth_link">
-                <Link to="">Jane Smith</Link>
-                <span>
-                  May 15, 2021
-                  <span className="removed">
-                    ・ <FaRegClock /> 1 min
-                  </span>
-                </span>
-              </div>
-            </Card.Body>
-          </Card>
+                </div>
+              </Card.Body>
+            </Card>
+          ))}
         </Div>
       )}
     </div>
@@ -701,5 +619,5 @@ export default SmallCard
 
 SmallCard.defaultProps = {
   cardType: "default",
-  removeBadge: false
+  removeBadge: false,
 }

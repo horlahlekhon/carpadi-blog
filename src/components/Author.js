@@ -9,10 +9,10 @@ const Author = ({authorName, date, readTime}) => {
 
   return (
     <div className="author_ctn">
-      <Link to="" className="author_img">
+      <Link to={`/author/${(authorName).toLowerCase().replace(" ", "-")}`} className="author_img">
         <img src={imgUrl} alt="" />
       </Link>
-      <Link to="" className="author_link">
+      <Link to={`/author/${authorName.toLowerCase().replace(" ", "-")}`} className="author_link">
         <p>{authorName}</p>
         <span>
           {date} ・ <FaRegClock /> {readTime}
