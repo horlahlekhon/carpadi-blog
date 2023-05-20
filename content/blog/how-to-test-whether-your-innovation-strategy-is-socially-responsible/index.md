@@ -4,8 +4,8 @@ title: "How to test whether your innovation strategy is socially responsible
 date: "2019-08-05"
 readtime: "3 min"
 category: "innovation"
-thumbImg: "../../../src/images/salty_egg.jpg"
-featuredImg: "../../../src/images/salty_egg.jpg"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498577/carpadi-blog/change-thumb_iryr86.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498577/carpadi-blog/change-featured_wlbaqb.webp"
 tags: ["business", "innovation"]
 author: author2
 ---

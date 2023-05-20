@@ -1,4 +1,5 @@
 - id: author1
+  image: https://res.cloudinary.com/grootretro/image/upload/v1684528857/carpadi-blog/jane-smith_vvvqdn.webp
   name: Jane Smith
   job: Creative Designer
   bio: Sed commodo, est quis maximus fermentum, massa ipsum euismod neque, in varius risus tellus quis lacus. Sed ac bibendum odio.
@@ -7,6 +8,7 @@
   twitter:  https://www.twitter.com/jane_smith
   site:  https://www.janesmith.com
 - id: author2
+  image: https://res.cloudinary.com/grootretro/image/upload/v1684528857/carpadi-blog/john-doe_pya3ui.webp
   name: John Doe
   job: Website Developer
   bio: Sed commodo, est quis maximus fermentum, massa ipsum euismod neque, in varius risus tellus quis lacus. Sed ac bibendum odio.
@@ -15,6 +17,7 @@
   twitter:  https://www.twitter.com/johndoe
   site:  https://www.johndoe.com
 - id: author3
+  image: https://res.cloudinary.com/grootretro/image/upload/v1684528857/carpadi-blog/steve-grant_woy7b3.webp
   name: Steve Grant
   job: Product Designer
   bio: Sed commodo, est quis maximus fermentum, massa ipsum euismod neque, in varius risus tellus quis lacus. Sed ac bibendum odio.

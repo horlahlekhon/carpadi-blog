@@ -7,6 +7,7 @@ import "../styles/team.css"
 
 function Team({
   name,
+  author_image,
   job,
   bio,
   expertise,
@@ -16,7 +17,7 @@ function Team({
   removeButton
 
 }) {
-  const author_image = require("../images/jane-smith-lg.webp").default
+  // const author_image = require("../images/jane-smith-lg.webp").default
   return (
     <div className="team_ctn">
       <Link to={`/author/${(name).toLowerCase().replace(" ", "-")}`} className="view_posts" style={{display: `${removeButton}`}}>
@@ -51,16 +52,16 @@ function Team({
         </ul>
         <ul>
           <h2>Social Media</h2>
-          <Link to={ig}>
+          <a href={ig}>
           <img src={instagramLogo} alt="twitter"/>
            
-            instagram</Link>
-          <Link to={twitter}>
+            instagram</a>
+          <a href={twitter}>
           <img src={twitterLogo} alt="instagram"/>
-            twitter</Link>
-          <Link to={site}>
+            twitter</a>
+          <a href={site}>
           <img src={worldLogo} alt="world"/>
-            website</Link>
+            website</a>
         </ul>
 
       </div>

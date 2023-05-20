@@ -3,8 +3,8 @@ title: "Can a designer sustainably transform the world?"
 date: "2020-01-02"
 readtime: "1 min"
 category: "innovation"
-thumbImg: "../../../src/images/programmer-thumb.webp"
-featuredImg: "../../../src/images/programmer-thumb.webp"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498564/carpadi-blog/drinks-thumb_c4hgpl.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498564/carpadi-blog/drinks-featured_oltbyv.webp"
 tags: ["business", "innovation"]
 author: author2
 ---

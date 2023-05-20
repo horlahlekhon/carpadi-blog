@@ -50,7 +50,7 @@
     display: block;
     width: 100%;
     background-color: var(--theme-ui-colors-contentBg);
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     -webkit-transition: -webkit-transform 250ms ease, box-shadow 250ms ease, color 250ms ease;
     -webkit-transition: transform 250ms ease, box-shadow 250ms ease, color 250ms ease;
     transition: transform 250ms ease, box-shadow 250ms ease, color 250ms ease;
@@ -63,7 +63,7 @@
 .blog-post .articleBody .blog-img {
     width: 100%;
     height: 312px;
-    object-fit: none;
+    object-fit: cover;
     border-radius: 1rem 1rem 0 0;
 }
 
@@ -187,7 +187,7 @@ section.md-body h6 {
 .blog-post .articleBody .blog-post-nav {
     display: block;
     background-color: var(--theme-ui-colors-omegaLight);
-    border-radius: 0 0 0.5rem 0.5rem;
+    border-radius: 0 0 1rem 1rem;
     color: var(--theme-ui-colors-omegaDark);
     padding: 27px;
     margin: 2rem 4px 0;

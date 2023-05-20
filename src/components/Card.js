@@ -5,7 +5,6 @@ import Badge from "react-bootstrap/Badge"
 import styled from "styled-components"
 import Author from "./Author"
 import SmallCard from "./SmallCard"
-// import CategoryHeading from "./CategoryHeading"
 
 const CardComponent = ({
   cardType,
@@ -14,7 +13,7 @@ const CardComponent = ({
   changeFlex,
   smallCardData,
 }) => {
-  const image = require("../images/programmer-thumb.webp").default
+
 
   const Div = styled.div`
     /* padding: 0 14px; */
@@ -333,7 +332,7 @@ const CardComponent = ({
         {data.map(post => (
           <Card key={post.id} className="card-div">
             <Link className="image-ctn" to={post.fields.slug}>
-              <Card.Img src={image} />
+              <Card.Img src={`${post.frontmatter.thumbImg}`} alt={post.fields.slug}/>
             </Link>
 
             <Card.Body>
@@ -376,6 +375,7 @@ const CardComponent = ({
 
               <Author
                 authorName={post.fields.author.name}
+                authorImg={post.fields.author.image}
                 date={post.frontmatter.date}
                 readTime={post.frontmatter.readtime}
               />

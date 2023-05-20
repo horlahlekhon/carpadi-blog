@@ -3,8 +3,8 @@ title: "Broadcaster Saves Hours of Admin with Innovative Digital Audio Solution"
 date: "2020-04-16"
 readtime: "1 min"
 category: "case-studies"
-thumbImg: "../../../src/images/programmer-thumb.webp"
-featuredImg: "../../../src/images/programmer-thumb.webp"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498565/carpadi-blog/broadcast-thumb_onuq6x.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498565/carpadi-blog/broadcast-featured_ifotou.webp"
 tags: ["agency", "business", "technology"]
 author: author3
 ---

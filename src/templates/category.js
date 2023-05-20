@@ -53,7 +53,7 @@ const Category = ({ data, pageContext }) => {
           }}
         >
           <Link
-            to={prev}
+            to={`${prev}`}
             className="prev_btn"
             style={{ visibility: prev === null ? "hidden" : "visible" }}
           >
@@ -79,7 +79,7 @@ const Category = ({ data, pageContext }) => {
           </div>
 
           <Link
-            to={next}
+           to={`${next}`}
             className="next_btn"
             style={{ visibility: next === null ? "hidden" : "visible" }}
           >
@@ -129,15 +129,15 @@ export const query = graphql`
           readtime
           category
           tags
-          thumbImg {
-            relativePath
-          }
+          thumbImg
+          featuredImg
         }
         excerpt
         fields {
           slug
           author {
             name
+            image
           }
         }
         id

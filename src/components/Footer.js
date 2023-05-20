@@ -13,18 +13,18 @@ const Footer = ({ dark }) => {
       {/* for smaller device up */}
       <div className="d-block d-md-none">
         <div className="footer-social-icons">
-          <a href="">
+          <a href="https://github.com/">
             <img src={githubLogo} alt="github-logos" />
 
             <span>github</span>
           </a>
 
-          <a href="">
+          <a href="https://twitter.com/">
             <img src={twitterLogo} alt="twitter-logos" />
             <span>twitter</span>
           </a>
 
-          <a href="">
+          <a href="https://instagram.com/">
             <img src={instagramLogo} alt="instagram-logos" />
 
             <span>instagram</span>
@@ -96,18 +96,18 @@ const Footer = ({ dark }) => {
 
         <div className="footer-social-icons">
         <p>Social Media</p>
-          <a href="">
+          <a href="https://github.com/">
             <img src={githubLogo} alt="github-logos" />
 
             <span>github</span>
           </a>
 
-          <a href="">
+          <a href="https://twitter.com/">
             <img src={twitterLogo} alt="twitter-logos" />
             <span>twitter</span>
           </a>
 
-          <a href="">
+          <a href="https://instagram.com/">
             <img src={instagramLogo} alt="instagram-logos" />
 
             <span>instagram</span>

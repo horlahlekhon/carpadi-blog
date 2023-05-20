@@ -13,7 +13,6 @@ const TagPosts = ({ data, pageContext }) => {
   const next = pageContext.next
   const totalPage = pageContext.totalPage
   const currentPage = pageContext.currentPage
-  //   const currentCategory = pageContext.category
 
   return (
     <Layout>
@@ -37,7 +36,7 @@ const TagPosts = ({ data, pageContext }) => {
             }}
           >
             <Link
-              to={prev}
+              to={`${prev}`}
               className="prev_btn"
               style={{ visibility: prev === null ? "hidden" : "visible" }}
             >
@@ -63,7 +62,7 @@ const TagPosts = ({ data, pageContext }) => {
             </div>
 
             <Link
-              to={next}
+              to={`${next}`}
               className="next_btn"
               style={{ visibility: next === null ? "hidden" : "visible" }}
             >
@@ -106,15 +105,15 @@ export const query = graphql`
           title
           readtime
           category
-          thumbImg {
-            relativePath
-          }
+          thumbImg
+          featuredImg
         }
         excerpt
         fields {
           slug
           author {
             name
+            image
           }
         }
         id

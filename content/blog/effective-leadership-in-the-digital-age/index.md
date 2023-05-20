@@ -3,8 +3,8 @@ title: "Effective Leadership in the Digital Age"
 date: "2010-02-16"
 readtime: "2 min"
 category: "management"
-thumbImg: "../../../src/images/programmer-thumb.webp"
-featuredImg: "../../../src/images/programmer-thumb.webp"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498562/carpadi-blog/ski-thumb_qxwgaq.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498582/carpadi-blog/ski-featured_xrwatf.webp"
 tags: ["agency", "business", "technology"]
 author: author3
 ---

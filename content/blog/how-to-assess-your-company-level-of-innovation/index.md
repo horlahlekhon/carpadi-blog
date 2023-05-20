@@ -4,8 +4,8 @@ title: "How to assess your company’s level of innovation
 date: "2021-04-05"
 readtime: "2 min"
 category: "innovation"
-thumbImg: "../../../src/images/salty_egg.jpg"
-featuredImg: "../../../src/images/salty_egg.jpg"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498579/carpadi-blog/women-thumb_z1mdjl.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498579/carpadi-blog/women-featured_i1pjyk.webp"
 tags: ["business", "innovation"]
 author: author2
 ---

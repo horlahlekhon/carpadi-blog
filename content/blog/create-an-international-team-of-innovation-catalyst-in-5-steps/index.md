@@ -3,8 +3,8 @@ title: "Create an international team of innovation catalysts in 5 steps"
 date: "2011-08-05"
 readtime: "2 min"
 category: "innovation"
-thumbImg: "../../../src/images/salty_egg.jpg"
-featuredImg: "../../../src/images/salty_egg.jpg"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498562/carpadi-blog/flags-thumb_g2fsnd.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498563/carpadi-blog/flags-featured_mrf7mr.webp"
 tags: ["business", "innovation"]
 author: author2
 ---

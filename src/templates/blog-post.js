@@ -9,8 +9,7 @@ import { Fade } from "react-reveal"
 const BlogPostTemplate = ({
   data: { previous, next, markdownRemark: post, allMarkdownRemark, mdx },
 }) => {
-  const image = require("../images/programmer-slidebg.jpg").default
-  const author_image = require("../images/jane-smith-lg.webp").default
+
 
   const related_posts = allMarkdownRemark.nodes
 
@@ -69,7 +68,7 @@ const BlogPostTemplate = ({
         <Fade bottom>
           <div className="article_ctn">
             <div className="articleBody">
-              <img className="blog-img" src={image} alt="article" />
+              <img className="blog-img" src={`${post.frontmatter.featuredImg}`} alt="article" />
 
               <section className="md-body" dangerouslySetInnerHTML={{ __html: post.html }} />
               {/* <MarkdownRenderer content={post.html} /> */}
@@ -183,7 +182,7 @@ const BlogPostTemplate = ({
               <section className="author-section">
                 <div className="author_img">
                   <div className="circle-bg"></div>
-                  <img src={author_image} alt="author" />
+                  <img src={post.fields.author.image} alt="author" />
                   <div className="curve"></div>
                 </div>
 
@@ -279,6 +278,7 @@ const BlogPostTemplate = ({
                 <section className="related-posts">
                   <h2>Related Posts</h2>
                   <SmallCard
+                    advertCtn="0"
                     data={related_posts}
                     cardType="advert"
                     removeBadge={true}
@@ -325,11 +325,14 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         tags
         category
+        thumbImg
+        featuredImg
       }
       fields {
         slug
         author {
           name
+          image
           job
           twitter
           site
@@ -356,6 +359,7 @@ export const pageQuery = graphql`
           slug
           author {
             name
+            image
           }
         }
       }

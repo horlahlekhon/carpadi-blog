@@ -27,7 +27,6 @@ const Layout = ({ children, removeTopics }) => {
     ? document.body.classList.add("disable-scroll")
     : document.body.classList.remove("disable-scroll")
 
-  console.log(isDark)
 
   useEffect(() => {
     //set theme to current theme type

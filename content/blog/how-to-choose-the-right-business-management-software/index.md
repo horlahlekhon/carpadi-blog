@@ -3,8 +3,8 @@ title: "How to Choose the Right Business Management Software"
 date: "2019-02-16"
 readtime: "1 min"
 category: "management"
-thumbImg: "../../../src/images/programmer-thumb.webp"
-featuredImg: "../../../src/images/programmer-thumb.webp"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498578/carpadi-blog/plan-thumb_a1vowt.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498578/carpadi-blog/plan-featured_ixaezb.webp"
 tags: ["agency", "management", "technology"]
 author: author3
 ---

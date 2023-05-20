@@ -5,8 +5,9 @@ import Badge from "react-bootstrap/Badge"
 import styled from "styled-components"
 import { FaRegClock, FaTasks } from "react-icons/fa"
 import { AiOutlineFileText } from "react-icons/ai"
+import { css } from '@emotion/react'
 
-const SmallCard = ({ cardType, data, removeBadge }) => {
+const SmallCard = ({ cardType, data, removeBadge, advertCtn }) => {
   /* when cardtype === advert
       then set image to null
       padding
@@ -408,11 +409,14 @@ const SmallCard = ({ cardType, data, removeBadge }) => {
     }
 
     @media (min-width: 920px) {
+      
       #advert-card-div {
         flex-basis: 25%;
         flex-grow: 1;
         margin: 7px;
       }
+
+
 
       #advert-card-div .card-body .card-title a {
         font-size: 16px;
@@ -486,10 +490,8 @@ const SmallCard = ({ cardType, data, removeBadge }) => {
             <Card key={post.id} className="small-card-div">
               <Link className="image-ctn"  to={post.fields.slug}>
                 <Card.Img
-                  src={
-                    require(`../images/${post.frontmatter.thumbImg.relativePath}`)
-                      .default
-                  }
+                  src={`${post.frontmatter.thumbImg}`}
+                  alt={post.fields.slug}
                 />
               </Link>
 
@@ -534,7 +536,7 @@ const SmallCard = ({ cardType, data, removeBadge }) => {
       )}
 
       {(cardType === "advert" || cardType === "innovation") && (
-        <Div id="advert-ctn" style={{ padding: "0 14px" }}>
+        <Div id="advert-ctn" style={{ padding: `${advertCtn}` }}>
           {data.map(post => (
             <Card key={post.id} className="small-card-div" id="advert-card-div">
               <Card.Body>
@@ -620,4 +622,5 @@ export default SmallCard
 SmallCard.defaultProps = {
   cardType: "default",
   removeBadge: false,
+  advertCtn: "0 14px"
 }

@@ -3,8 +3,8 @@ title: "The Rise Of Programmatic Outdoor What Advertisers Need To Know"
 date: "2020-03-16"
 readtime: "2 min"
 category: "management"
-thumbImg: "../../../src/images/programmer-thumb.webp"
-featuredImg: "../../../src/images/programmer-thumb.webp"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498572/carpadi-blog/programmatic-thumb_a3in3k.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498576/carpadi-blog/programmatic-featured_vtwp91.webp"
 tags: ["agency", "business", "technology"]
 author: author2
 ---

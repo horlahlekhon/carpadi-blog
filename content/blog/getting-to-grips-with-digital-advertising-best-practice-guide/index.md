@@ -1,13 +1,15 @@
 ---
-title: "Web Design Company’s Secret to Not Losing Money on Projects"
-date: "2019-04-06"
-readtime: "3 min"
-category: "case-studies"
-thumbImg: "../../../src/images/salty_egg.jpg"
-featuredImg: "../../../src/images/salty_egg.jpg"
+title: "Getting to Grips with Digital Advertising Best Practice Guide"
+date: "2018-04-06"
+readtime: "1 min"
+category: "advertising"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498579/carpadi-blog/grips-thumb_juuffm.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498579/carpadi-blog/grips-featured_u1nfnn.webp"
 tags: ["funds", "webdesigns", "technology"]
-author: author1
+author: author2
 ---
+
+
 
 Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in Bookmarksgrove

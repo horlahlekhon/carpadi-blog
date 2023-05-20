@@ -25,6 +25,7 @@ const Authors = ({ data }) => {
             <Team
               key={author.id}
               name={author.name}
+              author_image={author.image}
               job={author.job}
               bio={author.bio}
               expertise={author.expertise}
@@ -54,6 +55,7 @@ export const query = graphql`
         bio
         expertise
         id
+        image
         ig
         job
         name

@@ -27,7 +27,6 @@ export default function Nav({ dark, setDark, modalShow, input, removeTopics }) {
     <div>
       <Navbar className="navbar">
         <Container className="d-block px-0 navbar-ctn">
-
           {/* for smaller device up */}
           <div className="d-flex d-md-none align-items-center justify-content-between">
             <Navbar.Brand style={{ flexBasis: "100%" }}>
@@ -109,22 +108,24 @@ export default function Nav({ dark, setDark, modalShow, input, removeTopics }) {
                       </p>
                     </div>
 
-<div style={{display: `${removeTopics ? "none" : "block"}`}}>
-                    <h2 className="scn-h2">Topics</h2>
-                    <div className="canvas-links">
-                      <p>
-                        <Link to="/category/advertising">Advertising</Link>
-                      </p>
-                      <p>
-                        <Link to="/category/case-studies">Case Studies</Link>
-                      </p>
-                      <p>
-                        <Link to="/category/innovation">Innovation</Link>
-                      </p>
-                      <p>
-                        <Link to="/category/management">Management</Link>
-                      </p>
-                    </div>
+                    <div
+                      style={{ display: `${removeTopics ? "none" : "block"}` }}
+                    >
+                      <h2 className="scn-h2">Topics</h2>
+                      <div className="canvas-links">
+                        <p>
+                          <Link to="/category/advertising">Advertising</Link>
+                        </p>
+                        <p>
+                          <Link to="/category/case-studies">Case Studies</Link>
+                        </p>
+                        <p>
+                          <Link to="/category/innovation">Innovation</Link>
+                        </p>
+                        <p>
+                          <Link to="/category/management">Management</Link>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </Offcanvas.Body>
@@ -132,8 +133,7 @@ export default function Nav({ dark, setDark, modalShow, input, removeTopics }) {
             </Navigation>
           </div>
 
-
-{/* for medium device up - 768px */}
+          {/* for medium device up - 768px */}
           <div className="d-none d-md-flex align-items-center">
             <Navbar.Brand style={{ flexBasis: "30%" }}>
               <Link to="/">
@@ -222,8 +222,6 @@ export default function Nav({ dark, setDark, modalShow, input, removeTopics }) {
   )
 }
 
-
 Nav.defaultProps = {
-  removeTopics: true
+  removeTopics: true,
 }
-

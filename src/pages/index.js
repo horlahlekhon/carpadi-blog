@@ -10,6 +10,7 @@ import { FaRegHandshake, FaRegPaperPlane, FaWind } from "react-icons/fa"
 import Card from "../components/Card"
 import SmallCard from "../components/SmallCard"
 import CategoryHeading from "../components/CategoryHeading"
+import { Fade } from "react-reveal"
 
 const BlogIndex = ({ data }) => {
   const slidesPosts = data.slidesData.nodes
@@ -153,12 +154,14 @@ const BlogIndex = ({ data }) => {
         </Col>
       </Row>
 
-      <CategoryHeading category="advertising" />
-      <div style={{ padding: "0 14px" }}>
-        <Card data={advertBigDataPosts} cardType="advert" />
-      </div>
+      <Fade bottom>
+        <CategoryHeading category="advertising" />
+        <div style={{ padding: "0 14px" }}>
+          <Card data={advertBigDataPosts} cardType="advert" />
+        </div>
 
-      <SmallCard data={advertSmallDataPosts} cardType="advert" />
+        <SmallCard data={advertSmallDataPosts} cardType="advert" />
+      </Fade>
 
       {/* <div className="analysis">
         <div>
@@ -169,33 +172,37 @@ const BlogIndex = ({ data }) => {
         <Link to="">Download Report</Link>
       </div> */}
 
-      <CategoryHeading category="case-studies" />
-      <div style={{ padding: "0 14px" }}>
-        <Card
-        smallCardData={caseStudiesSmallDataPosts}
-          data={caseStudiesBigDataPosts}
-          cardType="case-studies"
-          removeBadge={true}
-        />
-      </div>
-      {/* <SmallCard cardType="case-studies" /> */}
+      <Fade bottom>
+        <CategoryHeading category="case-studies" />
+        <div style={{ padding: "0 14px" }}>
+          <Card
+            smallCardData={caseStudiesSmallDataPosts}
+            data={caseStudiesBigDataPosts}
+            cardType="case-studies"
+            removeBadge={true}
+          />
+        </div>
+      </Fade>
 
-      <CategoryHeading category="innovation"/>
-      <div style={{padding: "0 14px"}}>
-      <Card data={innovationBigDataPosts} cardType="innovation"/>
-      </div>
-      <SmallCard data={innovationSmallDataPosts} cardType="innovation" />
-      
+      <Fade bottom>
+        <CategoryHeading category="innovation" />
+        <div style={{ padding: "0 14px" }}>
+          <Card data={innovationBigDataPosts} cardType="innovation" />
+        </div>
+        <SmallCard data={innovationSmallDataPosts} cardType="innovation" />
+      </Fade>
 
-      <CategoryHeading category="management"/>
-      <div style={{padding: "0 14px"}}>
-      <Card 
-      smallCardData={managementSmallDataPosts} 
-      data={managementBigDataPosts} 
-      cardType="management" 
-      removeBadge={true}
-      />
-      </div>
+      <Fade bottom>
+        <CategoryHeading category="management" />
+        <div style={{ padding: "0 14px" }}>
+          <Card
+            smallCardData={managementSmallDataPosts}
+            data={managementBigDataPosts}
+            cardType="management"
+            removeBadge={true}
+          />
+        </div>
+      </Fade>
 
       <div className="newsletter">
         <div className="plane">
@@ -219,8 +226,6 @@ const BlogIndex = ({ data }) => {
 
         <button type="submit">Subscribe</button>
       </div>
-
-
     </Layout>
   )
 }
@@ -245,15 +250,15 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           readtime
-          featuredImg {
-            relativePath
-          }
+          thumbImg
+          featuredImg
         }
         excerpt
         fields {
           slug
           author {
             name
+            image
           }
         }
         id
@@ -270,15 +275,15 @@ export const pageQuery = graphql`
           title
           readtime
           category
-          thumbImg {
-            relativePath
-          }
+          thumbImg
+          featuredImg
         }
         excerpt
         fields {
           slug
           author {
             name
+            image
           }
         }
         id
@@ -296,15 +301,15 @@ export const pageQuery = graphql`
           title
           readtime
           category
-          thumbImg {
-            relativePath
-          }
+          thumbImg
+          featuredImg
         }
         excerpt
         fields {
           slug
           author {
             name
+            image
           }
         }
         id
@@ -328,6 +333,7 @@ export const pageQuery = graphql`
           slug
           author {
             name
+            image
           }
         }
         id
@@ -337,35 +343,35 @@ export const pageQuery = graphql`
     caseStudiesBigCardData: allMarkdownRemark(
       filter: { frontmatter: { category: { eq: "case-studies" } } }
       sort: { frontmatter: { date: DESC } }
-      limit: 2) {
+      limit: 2
+    ) {
       nodes {
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
           readtime
           category
-          thumbImg {
-            relativePath
-          }
+          thumbImg
+          featuredImg
         }
         excerpt
         fields {
           slug
           author {
             name
+            image
           }
         }
         id
       }
     }
 
-
     caseStudiesSmallCardData: allMarkdownRemark(
       filter: { frontmatter: { category: { eq: "case-studies" } } }
       sort: { frontmatter: { date: DESC } }
       skip: 2
       limit: 3
-      ) {
+    ) {
       nodes {
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
@@ -377,6 +383,7 @@ export const pageQuery = graphql`
           slug
           author {
             name
+            image
           }
         }
         id
@@ -394,15 +401,15 @@ export const pageQuery = graphql`
           title
           readtime
           category
-          thumbImg {
-            relativePath
-          }
+          thumbImg
+          featuredImg
         }
         excerpt
         fields {
           slug
           author {
             name
+            image
           }
         }
         id
@@ -426,6 +433,7 @@ export const pageQuery = graphql`
           slug
           author {
             name
+            image
           }
         }
         id
@@ -435,35 +443,35 @@ export const pageQuery = graphql`
     managementBigCardData: allMarkdownRemark(
       filter: { frontmatter: { category: { eq: "management" } } }
       sort: { frontmatter: { date: DESC } }
-      limit: 2) {
+      limit: 2
+    ) {
       nodes {
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
           readtime
           category
-          thumbImg {
-            relativePath
-          }
+          thumbImg
+          featuredImg
         }
         excerpt
         fields {
           slug
           author {
             name
+            image
           }
         }
         id
       }
     }
 
-
     managementSmallCardData: allMarkdownRemark(
       filter: { frontmatter: { category: { eq: "management" } } }
       sort: { frontmatter: { date: DESC } }
       skip: 2
       limit: 3
-      ) {
+    ) {
       nodes {
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
@@ -475,15 +483,11 @@ export const pageQuery = graphql`
           slug
           author {
             name
+            image
           }
         }
         id
       }
     }
-
-
-
-
-
   }
 `

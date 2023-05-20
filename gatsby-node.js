@@ -33,6 +33,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
           frontmatter {
+            title
             category
             tags
           }
@@ -330,6 +331,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Author {
       id: String
+      image: String
       name: String
       job: String
       bio: String

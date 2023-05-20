@@ -14,7 +14,7 @@ const AuthorPosts = ({ data, pageContext }) => {
   const next = pageContext.next
   const totalPage = pageContext.totalPage
   const currentPage = pageContext.currentPage
-  const { id, name, job, expertise, bio, ig, twitter, site } =
+  const { id, name, image, job, expertise, bio, ig, twitter, site } =
     data.markdownRemark.fields.author
 
   console.log(authorPosts)
@@ -33,6 +33,7 @@ const AuthorPosts = ({ data, pageContext }) => {
           <Team
             key={id}
             name={name}
+            author_image={image}
             job={job}
             bio={bio}
             expertise={expertise}
@@ -53,7 +54,7 @@ const AuthorPosts = ({ data, pageContext }) => {
             }}
           >
             <Link
-              to={prev}
+              to={`${prev}`}
               className="prev_btn"
               style={{ visibility: prev === null ? "hidden" : "visible" }}
             >
@@ -79,7 +80,7 @@ const AuthorPosts = ({ data, pageContext }) => {
             </div>
 
             <Link
-              to={next}
+              to={`${next}`}
               className="next_btn"
               style={{ visibility: next === null ? "hidden" : "visible" }}
             >
@@ -112,6 +113,7 @@ export const query = graphql`
     markdownRemark(fields: { author: { name: { eq: $authorName } } }) {
       fields {
         author {
+          image
           name
           site
           twitter
@@ -137,15 +139,15 @@ export const query = graphql`
           readtime
           category
           tags
-          thumbImg {
-            relativePath
-          }
+          thumbImg
+          featuredImg
         }
         excerpt
         fields {
           slug
           author {
             name
+            image
             bio
             expertise
             id

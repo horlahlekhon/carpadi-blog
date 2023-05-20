@@ -3,8 +3,8 @@ title: "Should You Manage Your Time or Your Energy?"
 date: "2015-02-16"
 readtime: "3 min"
 category: "management"
-thumbImg: "../../../src/images/programmer-thumb.webp"
-featuredImg: "../../../src/images/programmer-thumb.webp"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684508153/carpadi-blog/time-thumb_krvjfj.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684508153/carpadi-blog/time-featured_uyksuw.webp"
 tags: ["agency", "business", "technology"]
 author: author3
 ---

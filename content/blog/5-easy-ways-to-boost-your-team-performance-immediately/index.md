@@ -3,8 +3,8 @@ title: "5 Easy Ways to Boost Your Team Performance Immediately"
 date: "2020-02-16"
 readtime: "2 min"
 category: "management"
-thumbImg: "../../../src/images/programmer-thumb.webp"
-featuredImg: "../../../src/images/programmer-thumb.webp"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684492041/carpadi-blog/laugh-thumb_wkva1l.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684492027/carpadi-blog/laugh-featured_u34zdv.webp"
 tags: ["agency", "business", "technology"]
 author: author3
 ---

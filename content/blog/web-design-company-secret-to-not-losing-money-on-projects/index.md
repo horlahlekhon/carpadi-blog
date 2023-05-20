@@ -1,12 +1,12 @@
 ---
-title: "Getting to Grips with Digital Advertising Best Practice Guide"
-date: "2018-04-06"
-readtime: "1 min"
-category: "advertising"
-thumbImg: "../../../src/images/salty_egg.jpg"
-featuredImg: "../../../src/images/salty_egg.jpg"
+title: "Web Design Company’s Secret to Not Losing Money on Projects"
+date: "2019-04-06"
+readtime: "3 min"
+category: "case-studies"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498574/carpadi-blog/bitcoin-eyes-thumb_lsf7xw.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498575/carpadi-blog/bitcoin-eyes-featured_ojizas.webp"
 tags: ["funds", "webdesigns", "technology"]
-author: author2
+author: author1
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

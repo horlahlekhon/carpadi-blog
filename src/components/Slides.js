@@ -249,7 +249,7 @@ const Slides = ({ slidesData }) => {
       <Slider ref={slider} {...settings}>
         {slidesData.map(post => (
        
-          <SlideCard key={post.id} bgImg={require(`../images/${post.frontmatter.featuredImg.relativePath}`).default} >
+          <SlideCard key={post.id} bgImg={`${post.frontmatter.featuredImg}`} >
             <div className="slide_card">
               <Link to={post.fields.slug} className="title">
                 {post.frontmatter.title}
@@ -257,6 +257,7 @@ const Slides = ({ slidesData }) => {
 
               <Author
                 authorName={post.fields.author.name}
+                authorImg={post.fields.author.image}
                 date={post.frontmatter.date}
                 readTime={post.frontmatter.readtime}
               />

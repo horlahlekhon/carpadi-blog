@@ -3,8 +3,8 @@ title: "Markdown Language Sample Blog Post Styling"
 date: "2021-05-15"
 readtime: "2 min"
 category: "advertising"
-thumbImg: "../../../src/images/programmer-thumb.webp"
-featuredImg: "../../../src/images/programmer-thumb.webp"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498567/carpadi-blog/programmer-thumb_fomd0k.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498567/carpadi-blog/programmer-featured_o0twfh.webp"
 tags: ["tutorial", "technology"]
 author: author1
 ---

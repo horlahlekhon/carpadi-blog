@@ -3,8 +3,8 @@ title: "University boosts alumni engagement with nostalgic playlist"
 date: "2019-01-06"
 readtime: "3 min"
 category: "case-studies"
-thumbImg: "../../../src/images/salty_egg.jpg"
-featuredImg: "../../../src/images/salty_egg.jpg"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498573/carpadi-blog/uni-thumb_jjwwto.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498574/carpadi-blog/uni-featured_srzith.webp"
 tags: ["music", "school", "technology"]
 author: author3
 ---

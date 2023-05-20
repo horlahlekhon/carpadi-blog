@@ -3,8 +3,8 @@ title: "Consultancy Saves 30% Time on Managing Daily Work"
 date: "2021-11-11"
 readtime: "1 min"
 category: "case-studies"
-thumbImg: "../../../src/images/salty_egg.jpg"
-featuredImg: "../../../src/images/salty_egg.jpg"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498563/carpadi-blog/consultancy-thumb_syr6js.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498564/carpadi-blog/consultancy-featured_exrnlq.webp"
 tags: ["agency", "business", "technology"]
 author: author2
 ---

@@ -3,8 +3,8 @@ title: "A Marketer’s Guide to Price Comparison Websites"
 date: "2023-04-16"
 readtime: "3 min"
 category: "advertising"
-thumbImg: "../../../src/images/salty_egg.jpg"
-featuredImg: "../../../src/images/salty_egg.jpg"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498566/carpadi-blog/coin-thumb_lvtbqt.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498566/carpadi-blog/coin-featured_qgptnj.webp"
 tags: ["agency", "business", "technology"]
 author: author1
 ---

@@ -3,8 +3,8 @@ title: "5 ingenious innovations triggered by chaos in startups"
 date: "2019-04-05"
 readtime: "2 min"
 category: "innovation"
-thumbImg: "../../../src/images/salty_egg.jpg"
-featuredImg: "../../../src/images/salty_egg.jpg"
+thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684491457/carpadi-blog/ingenious-thumb_sgjihq.webp"
+featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684491457/carpadi-blog/ingenious-featured_lezxba.webp"
 tags: ["agency", "advert", "technology"]
 author: author2
 ---
