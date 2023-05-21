@@ -3,11 +3,11 @@ title: "How to test whether your innovation strategy is socially responsible
 "
 date: "2019-08-05"
 readtime: "3 min"
-category: "innovation"
+category: "buying-guide"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498577/carpadi-blog/change-thumb_iryr86.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498577/carpadi-blog/change-featured_wlbaqb.webp"
-tags: ["business", "innovation"]
-author: author2
+tags: ["business", "buyingguide"]
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

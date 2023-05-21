@@ -2,11 +2,11 @@
 title: "Branding Agency Replaced Ten Tools With Just One"
 date: "2022-09-11"
 readtime: "1 min"
-category: "case-studies"
+category: "maintenance-and-tips"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498565/carpadi-blog/brand-thumb_nfcykt.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498565/carpadi-blog/brand-featured_vev2zh.webp"
 tags: ["agency", "business", "technology"]
-author: author1
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

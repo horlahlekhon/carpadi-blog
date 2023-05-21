@@ -2,11 +2,11 @@
 title: "Top Social Media Platforms Overview"
 date: "2017-04-05"
 readtime: "2 min"
-category: "advertising"
+category: "car-reviews"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498572/carpadi-blog/social-media-thumb_c1j3oi.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498573/carpadi-blog/social-media-featured_dzok7y.webp"
 tags: ["agency", "advert", "technology"]
-author: author2
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

@@ -9,11 +9,35 @@ import Fade from "react-reveal/Fade"
 
 const Category = ({ data, pageContext }) => {
   const categoryPosts = data.allMarkdownRemark.nodes
-  const prev = pageContext.prev
-  const next = pageContext.next
-  const totalPage = pageContext.totalPage
   const currentPage = pageContext.currentPage
   const currentCategory = pageContext.category
+  const postsPerPage = pageContext.postPerPage
+
+  const totalPage = Math.ceil(data.allMarkdownRemark.totalCount / postsPerPage)
+
+  const pageIndex = pageContext.page_index
+  const pageNumber = pageContext.page_number
+
+
+  function getNextPageLink() {
+    if (pageNumber < totalPage) {
+      return `/category/${currentCategory}/${pageNumber + 1}`
+    }
+
+    return null
+  }
+
+  function getPreviousPageLink() {
+    if (!pageIndex) return null
+
+    if (pageIndex === 1) return `/category/${currentCategory}`
+    //else
+    return `/category/${currentCategory}/${pageIndex}`
+  }
+
+  const next = getNextPageLink()
+  const prev = getPreviousPageLink()
+
 
   return (
     <Layout>
@@ -22,7 +46,7 @@ const Category = ({ data, pageContext }) => {
           <h2>
             {(
               currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1)
-            ).replace("-", " ")}{" "}
+            ).replace(/-/g, " ")}{" "}
             <Badge>{data.allMarkdownRemark.totalCount}</Badge>
           </h2>
           <h6>
@@ -109,7 +133,7 @@ export const Head = ({ pageContext }) => (
     title={(
       pageContext.category.charAt(0).toUpperCase() +
       pageContext.category.slice(1)
-    ).replace("-", " ")}
+    ).replace(/-/g, " ")}
   />
 )
 

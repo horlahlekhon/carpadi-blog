@@ -5,7 +5,6 @@ import Badge from "react-bootstrap/Badge"
 import styled from "styled-components"
 import { FaRegClock, FaTasks } from "react-icons/fa"
 import { AiOutlineFileText } from "react-icons/ai"
-import { css } from '@emotion/react'
 
 const SmallCard = ({ cardType, data, removeBadge, advertCtn }) => {
   /* when cardtype === advert
@@ -22,8 +21,6 @@ const SmallCard = ({ cardType, data, removeBadge, advertCtn }) => {
       link to case-studies link */
 
   /* 5px 13px */
-
-  const image = require("../images/programmer-thumb.webp").default
   const designBgImage = require("../images/bg-design.png").default
 
   const Div = styled.div`
@@ -189,7 +186,7 @@ const SmallCard = ({ cardType, data, removeBadge, advertCtn }) => {
       align-items: center;
       margin: 0;
       width: 70%;
-      background-color: ${cardType === "case-studies" ? "#c6f6d5" : "#bee3f8"};
+      background-color: ${cardType === "maintenance-and-tips" ? "#c6f6d5" : "#bee3f8"};
       color: #2d3748;
       height: 100%;
       border-radius: 0.5rem;
@@ -500,18 +497,18 @@ const SmallCard = ({ cardType, data, removeBadge, advertCtn }) => {
                   className="badge-div"
                   to={`category/${post.frontmatter.category}`}
                 >
-                  {post.frontmatter.category === "advertising" && (
-                    <Badge>Advertising</Badge>
-                  )}
-                  {post.frontmatter.category === "case-studies" && (
-                    <Badge id="case_bg">Case studies</Badge>
-                  )}
-                  {post.frontmatter.category === "innovation" && (
-                    <Badge id="innov_bg">Innovation</Badge>
-                  )}
-                  {post.frontmatter.category === "management" && (
-                    <Badge id="manage_bg">Management</Badge>
-                  )}
+                  {post.frontmatter.category === "car-reviews" && (
+                  <Badge>Car Reviews</Badge>
+                )}
+                {post.frontmatter.category === "maintenance-and-tips" && (
+                  <Badge id="case_bg">Maintenance & Tips</Badge>
+                )}
+                {post.frontmatter.category === "buying-guide" && (
+                  <Badge id="innov_bg">Buying Guide</Badge>
+                )}
+                {post.frontmatter.category === "car-comparison" && (
+                  <Badge id="manage_bg">Car Comparison</Badge>
+                )}
                 </Link>
 
                 <Card.Title>
@@ -535,7 +532,7 @@ const SmallCard = ({ cardType, data, removeBadge, advertCtn }) => {
         </Div>
       )}
 
-      {(cardType === "advert" || cardType === "innovation") && (
+      {(cardType === "car-reviews" || cardType === "buying-guide") && (
         <Div id="advert-ctn" style={{ padding: `${advertCtn}` }}>
           {data.map(post => (
             <Card key={post.id} className="small-card-div" id="advert-card-div">
@@ -544,12 +541,12 @@ const SmallCard = ({ cardType, data, removeBadge, advertCtn }) => {
                   className="badge-div"
                   to={`category/${post.frontmatter.category}`}
                 >
-                  {post.frontmatter.category === "advertising" && (
-                    <Badge>Advertising</Badge>
-                  )}
-                  {post.frontmatter.category === "innovation" && (
-                    <Badge id="innov_bg">Innovation</Badge>
-                  )}
+                 {post.frontmatter.category === "car-reviews" && (
+                  <Badge>Car Reviews</Badge>
+                )}
+                  {post.frontmatter.category === "buying-guide" && (
+                  <Badge id="innov_bg">Buying Guide</Badge>
+                )}
                 </Link>
 
                 <Card.Title>
@@ -571,13 +568,13 @@ const SmallCard = ({ cardType, data, removeBadge, advertCtn }) => {
         </Div>
       )}
 
-      {(cardType === "case-studies" || cardType === "management") && (
+      {(cardType === "maintenance-and-tips" || cardType === "car-comparison") && (
         <Div id="case-studies-ctn" style={{ padding: "0" }}>
           {data.map(post => (
             <Card key={post.id} className="small-card-div" id="case-card-div">
               <Link className="image-ctn" to={post.fields.slug}>
                 <div className="file-type">
-                  {cardType === "case-studies" ? (
+                  {cardType === "maintenance-and-tips" ? (
                     <AiOutlineFileText />
                   ) : (
                     <FaTasks />

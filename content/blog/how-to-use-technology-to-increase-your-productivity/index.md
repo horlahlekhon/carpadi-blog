@@ -2,11 +2,11 @@
 title: "How to Use Technology to Increase Your Productivity"
 date: "2012-02-16"
 readtime: "1 min"
-category: "management"
+category: "car-comparison"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498576/carpadi-blog/drone-thumb_q015ac.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498576/carpadi-blog/drone-featured_wie6el.webp"
 tags: ["agency", "business", "technology"]
-author: author3
+author: jane-smith
 ---
 
 

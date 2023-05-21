@@ -7,8 +7,8 @@ import {
   Offcanvas,
 } from "react-bootstrap"
 import { FaMoon, FaSearch, FaSun } from "react-icons/fa"
-import lightLogo from "../images/logo-light.webp"
-import darkLogo from "../images/logo-dark.webp"
+import lightLogo from "../images/white-logo.png"
+import darkLogo from "../images/blue-logo.png"
 import "../styles/nav.css"
 
 export default function Nav({ dark, setDark, modalShow, input, removeTopics }) {
@@ -32,9 +32,9 @@ export default function Nav({ dark, setDark, modalShow, input, removeTopics }) {
             <Navbar.Brand style={{ flexBasis: "100%" }}>
               <Link to="/">
                 {dark === "dark" ? (
-                  <img src={darkLogo} alt="nav-light-logo" />
+                  <img src={lightLogo} alt="nav-light-logo" style={{width: "150px"}}/>
                 ) : (
-                  <img src={lightLogo} alt="nav-light-logo" />
+                  <img src={darkLogo} alt="nav-dark-logo" style={{width: "150px"}}/>
                 )}
               </Link>
             </Navbar.Brand>
@@ -138,9 +138,9 @@ export default function Nav({ dark, setDark, modalShow, input, removeTopics }) {
             <Navbar.Brand style={{ flexBasis: "30%" }}>
               <Link to="/">
                 {dark === "dark" ? (
-                  <img src={darkLogo} alt="nav-light-logo" />
+                  <img src={lightLogo} alt="nav-light-logo" style={{width: "200px"}}/>
                 ) : (
-                  <img src={lightLogo} alt="nav-light-logo" />
+                  <img src={darkLogo} alt="nav-dark-logo" style={{width: "200px"}}/>
                 )}
               </Link>
             </Navbar.Brand>

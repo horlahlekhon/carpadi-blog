@@ -2,11 +2,11 @@
 title: "Getting to Grips with Digital Advertising Best Practice Guide"
 date: "2018-04-06"
 readtime: "1 min"
-category: "advertising"
+category: "car-reviews"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498579/carpadi-blog/grips-thumb_juuffm.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498579/carpadi-blog/grips-featured_u1nfnn.webp"
 tags: ["funds", "webdesigns", "technology"]
-author: author2
+author: jane-smith
 ---
 
 

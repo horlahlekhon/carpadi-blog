@@ -2,11 +2,11 @@
 title: "The Best Digital Marketing Stats We’ve Seen This Week"
 date: "2023-05-26"
 readtime: "3 min"
-category: "advertising"
+category: "car-reviews"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498569/carpadi-blog/digital-thumb_la0ebj.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498569/carpadi-blog/digital-thumb_la0ebj.webp"
 tags: ["funds", "webdesigns", "technology"]
-author: author3
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

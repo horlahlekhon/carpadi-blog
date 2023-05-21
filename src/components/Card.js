@@ -19,7 +19,7 @@ const CardComponent = ({
     /* padding: 0 14px; */
 
     .card-div {
-      display: ${cardType === "case-studies" || cardType === "management"
+      display: ${cardType === "maintenance-and-tips" || cardType === "car-comparison"
         ? "none"
         : "flex"};
       margin: 14px 0;
@@ -165,14 +165,14 @@ const CardComponent = ({
       }
 
       .card-div:nth-child(2) {
-        order: ${cardType === "case-studies" || cardType === "management"
+        order: ${cardType === "maintenance-and-tips" || cardType === "car-comparison"
           ? "3"
           : "unset"};
       }
 
       //change later....
       .card-div:nth-child(3) {
-        display: ${cardType === "case-studies" || cardType === "management"
+        display: ${cardType === "maintenance-and-tips" || cardType === "car-comparison"
           ? "none"
           : "flex"};
       }
@@ -342,17 +342,17 @@ const CardComponent = ({
               >
                 {/* <Badge>{ cardType === 'advert' ? "Advertising" : "Innovation"}</Badge> */}
 
-                {post.frontmatter.category === "advertising" && (
-                  <Badge>Advertising</Badge>
+                {post.frontmatter.category === "car-reviews" && (
+                  <Badge>Car Reviews</Badge>
                 )}
-                {post.frontmatter.category === "case-studies" && (
-                  <Badge id="case_bg">Case studies</Badge>
+                {post.frontmatter.category === "maintenance-and-tips" && (
+                  <Badge id="case_bg">Maintenance & Tips</Badge>
                 )}
-                {post.frontmatter.category === "innovation" && (
-                  <Badge id="innov_bg">Innovation</Badge>
+                {post.frontmatter.category === "buying-guide" && (
+                  <Badge id="innov_bg">Buying Guide</Badge>
                 )}
-                {post.frontmatter.category === "management" && (
-                  <Badge id="manage_bg">Management</Badge>
+                {post.frontmatter.category === "car-comparison" && (
+                  <Badge id="manage_bg">Car Comparison</Badge>
                 )}
               </Link>
 
@@ -386,7 +386,7 @@ const CardComponent = ({
         ))}
 
         <div>
-          {(cardType === "case-studies" || cardType === "management") && (
+          {(cardType === "maintenance-and-tips" || cardType === "car-comparison") && (
             <SmallCard data={smallCardData} cardType={cardType} />
           )}
         </div>

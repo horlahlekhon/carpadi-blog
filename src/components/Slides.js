@@ -7,7 +7,6 @@ import Author from "./Author"
 
 const Slides = ({ slidesData }) => {
   const slider = React.useRef(null)
-  const bgUrl = require("../images/programmer-slidebg.jpg").default
 
   console.log(slidesData)
 

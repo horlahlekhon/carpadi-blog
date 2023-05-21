@@ -2,11 +2,11 @@
 title: "Markdown Language Sample Blog Post Styling"
 date: "2021-05-15"
 readtime: "2 min"
-category: "advertising"
+category: "car-reviews"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498567/carpadi-blog/programmer-thumb_fomd0k.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498567/carpadi-blog/programmer-featured_o0twfh.webp"
 tags: ["tutorial", "technology"]
-author: author1
+author: jane-smith
 ---
 
 

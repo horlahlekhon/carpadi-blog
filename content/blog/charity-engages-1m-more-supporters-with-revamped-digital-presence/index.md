@@ -2,11 +2,11 @@
 title: "Charity engages 1m more supporters with revamped digital presence"
 date: "2022-07-11"
 readtime: "1 min"
-category: "case-studies"
+category: "maintenance-and-tips"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498564/carpadi-blog/charity-thumb_vvcy1k.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498564/carpadi-blog/charity-featured_vdutco.webp"
 tags: ["agency", "business", "technology"]
-author: author2
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

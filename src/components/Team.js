@@ -1,19 +1,14 @@
 import { Link } from "gatsby"
 import React from "react"
-import twitterLogo from "../images/twitter.svg"
 import instagramLogo from "../images/instagram.svg"
-import worldLogo from "../images/world.svg"
 import "../styles/team.css"
 
 function Team({
   name,
   author_image,
   job,
-  bio,
   expertise,
   ig,
-  twitter,
-  site,
   removeButton
 
 }) {
@@ -35,9 +30,6 @@ function Team({
       <div className="author_text">
         <Link to={`/author/${(name).toLowerCase().replace(" ", "-")}`}>{name}</Link>
         <p>{job}</p>
-        <span>
-         {bio}
-        </span>
       </div>
 
       <div className="author_other_info">
@@ -54,14 +46,8 @@ function Team({
           <h2>Social Media</h2>
           <a href={ig}>
           <img src={instagramLogo} alt="twitter"/>
-           
-            instagram</a>
-          <a href={twitter}>
-          <img src={twitterLogo} alt="instagram"/>
-            twitter</a>
-          <a href={site}>
-          <img src={worldLogo} alt="world"/>
-            website</a>
+           instagram
+          </a>
         </ul>
 
       </div>

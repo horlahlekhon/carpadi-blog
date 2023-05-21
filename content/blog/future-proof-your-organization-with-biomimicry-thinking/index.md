@@ -2,11 +2,11 @@
 title: "Future-proof your organization with biomimicry thinking"
 date: "2012-08-05"
 readtime: "2 min"
-category: "innovation"
+category: "buying-guide"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498581/carpadi-blog/paint-thumb_m8bnpg.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498581/carpadi-blog/paint-featured_lg6uel.webp"
-tags: ["business", "innovation"]
-author: author2
+tags: ["business", "buyingguide"]
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

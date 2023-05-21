@@ -2,11 +2,11 @@
 title: "Online shopping data drives offline revenue growth of 410%"
 date: "2019-06-16"
 readtime: "4 min"
-category: "case-studies"
+category: "maintenance-and-tips"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498568/carpadi-blog/shopping-thumb_dzxaze.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498570/carpadi-blog/shopping-featured_oy1spw.webp"
 tags: ["agency", "business", "technology"]
-author: author1
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

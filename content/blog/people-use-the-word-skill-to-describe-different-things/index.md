@@ -2,11 +2,11 @@
 title: "People use the word skill to describe different things"
 date: "2013-06-16"
 readtime: "1 min"
-category: "management"
+category: "car-comparison"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498570/carpadi-blog/chess-thumb_mvqe76.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498569/carpadi-blog/chess-featured_haagp2.webp"
-tags: ["agency", "management", "technology"]
-author: author3
+tags: ["agency", "carcomparison", "technology"]
+author: jane-smith
 ---
 
 

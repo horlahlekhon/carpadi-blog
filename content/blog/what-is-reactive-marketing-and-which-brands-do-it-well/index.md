@@ -2,11 +2,11 @@
 title: "What Is Reactive Marketing? And Which Brands Do It Well?"
 date: "2018-05-05"
 readtime: "2 min"
-category: "advertising"
+category: "car-reviews"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498575/carpadi-blog/money-sprayer-thumb_zxt4f5.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498576/carpadi-blog/money-sprayer-featured_sqvsoy.webp"
 tags: ["agency", "advert", "technology"]
-author: author3
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

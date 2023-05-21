@@ -2,11 +2,11 @@
 title: "A Marketer’s Guide to Price Comparison Websites"
 date: "2023-04-16"
 readtime: "3 min"
-category: "advertising"
+category: "car-reviews"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498566/carpadi-blog/coin-thumb_lvtbqt.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498566/carpadi-blog/coin-featured_qgptnj.webp"
 tags: ["agency", "business", "technology"]
-author: author1
+author: jane-smith
 ---
 
 

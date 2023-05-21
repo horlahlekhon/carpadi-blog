@@ -2,11 +2,11 @@
 title: "Create an international team of innovation catalysts in 5 steps"
 date: "2011-08-05"
 readtime: "2 min"
-category: "innovation"
+category: "buying-guide"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498562/carpadi-blog/flags-thumb_g2fsnd.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498563/carpadi-blog/flags-featured_mrf7mr.webp"
-tags: ["business", "innovation"]
-author: author2
+tags: ["business", "buyingguide"]
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

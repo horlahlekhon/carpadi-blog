@@ -5,10 +5,9 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem;
+  padding: 13px;
   position: relative;
   z-index: 10;
-
 }
 
 .nav-icons {
@@ -121,7 +120,7 @@
   }
 
   .navbar {
-    padding: 1.8rem;
+    padding: 1rem 1.8rem;
 
   }
 

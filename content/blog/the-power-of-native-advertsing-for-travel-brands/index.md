@@ -2,11 +2,11 @@
 title: "The Power Of Native Advertising For Travel Brands"
 date: "2015-01-01"
 readtime: "5 min"
-category: "advertising"
+category: "car-reviews"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498571/carpadi-blog/power-thumb_frljiv.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498571/carpadi-blog/power-featured_tabchv.webp"
 tags: ["agency", "advert", "technology"]
-author: author3
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

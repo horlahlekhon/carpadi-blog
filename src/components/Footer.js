@@ -1,10 +1,10 @@
 import React from "react"
-import githubLogo from "../images/github.svg"
+import facebookLogo from "../images/facebook-logo.svg"
 import twitterLogo from "../images/twitter.svg"
 import instagramLogo from "../images/instagram.svg"
 import { Link } from "gatsby"
-import lightLogo from "../images/logo-light.webp"
-import darkLogo from "../images/logo-dark.webp"
+import lightLogo from "../images/white-logo.png"
+import darkLogo from "../images/blue-logo.png"
 import "../styles/footer.css"
 
 const Footer = ({ dark }) => {
@@ -13,10 +13,10 @@ const Footer = ({ dark }) => {
       {/* for smaller device up */}
       <div className="d-block d-md-none">
         <div className="footer-social-icons">
-          <a href="https://github.com/">
-            <img src={githubLogo} alt="github-logos" />
+          <a href="https://www.facebook.com/CarpadiNigeria">
+            <img src={facebookLogo} alt="facebook-logos" />
 
-            <span>github</span>
+            <span>facebook</span>
           </a>
 
           <a href="https://twitter.com/">
@@ -24,7 +24,7 @@ const Footer = ({ dark }) => {
             <span>twitter</span>
           </a>
 
-          <a href="https://instagram.com/">
+          <a href="https://www.instagram.com/carpadi_hq/">
             <img src={instagramLogo} alt="instagram-logos" />
 
             <span>instagram</span>
@@ -48,9 +48,9 @@ const Footer = ({ dark }) => {
           <div>
             <Link to="/">
               {dark === "dark" ? (
-                <img src={darkLogo} alt="nav-light-logo" />
+                <img src={lightLogo} alt="nav-light-logo" style={{width: "150px"}}/>
               ) : (
-                <img src={lightLogo} alt="nav-light-logo" />
+                <img src={darkLogo} alt="nav-dark-logo" style={{width: "150px"}}/>
               )}
             </Link>
           </div>
@@ -66,9 +66,9 @@ const Footer = ({ dark }) => {
           <div>
             <Link to="/">
               {dark === "dark" ? (
-                <img src={darkLogo} alt="nav-light-logo" />
+                <img src={lightLogo} alt="nav-light-logo" style={{width: "200px"}}/>
               ) : (
-                <img src={lightLogo} alt="nav-light-logo" />
+                <img src={darkLogo} alt="nav-dark-logo"  style={{width: "200px"}} />
               )}
             </Link>
           </div>
@@ -96,10 +96,10 @@ const Footer = ({ dark }) => {
 
         <div className="footer-social-icons">
         <p>Social Media</p>
-          <a href="https://github.com/">
-            <img src={githubLogo} alt="github-logos" />
+          <a href="https://www.facebook.com/CarpadiNigeria">
+            <img src={facebookLogo} alt="facebook-logos" />
 
-            <span>github</span>
+            <span>facebook</span>
           </a>
 
           <a href="https://twitter.com/">
@@ -107,7 +107,7 @@ const Footer = ({ dark }) => {
             <span>twitter</span>
           </a>
 
-          <a href="https://instagram.com/">
+          <a href="https://www.instagram.com/carpadi_hq/">
             <img src={instagramLogo} alt="instagram-logos" />
 
             <span>instagram</span>

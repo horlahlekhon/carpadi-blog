@@ -213,7 +213,6 @@
 
 
      .team_ctn {
-        padding: 0rem;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -245,6 +244,7 @@
 
 
     .team_ctn .author_other_info {
+        margin: 25px auto;
         flex-basis: 50%;
         justify-content: space-evenly;
 

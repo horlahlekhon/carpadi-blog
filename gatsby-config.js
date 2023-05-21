@@ -19,14 +19,6 @@ module.exports = {
     description: `This is a blog for carpadi.`,
   },
   plugins: [
-    // {
-    //   resolve: `gatsby-source-contentful`,
-    //   options: {
-    //     spaceId: `16gvioz8jryo`,
-    //     // Learn about environment variables: https://gatsby.dev/env-vars
-    //     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    //   },
-    // },
     `gatsby-plugin-image`,
     // Add gatsby-plugin-mdx
     {

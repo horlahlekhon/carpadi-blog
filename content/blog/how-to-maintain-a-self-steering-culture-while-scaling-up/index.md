@@ -3,11 +3,11 @@ title: "How to maintain a self-steering culture while scaling up
 "
 date: "2021-04-05"
 readtime: "2 min"
-category: "innovation"
+category: "buying-guide"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498577/carpadi-blog/culture-thumb_a9ue48.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498577/carpadi-blog/culture-featured_fxj0i5.webp"
-tags: ["business", "innovation"]
-author: author2
+tags: ["business", "buyingguide"]
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

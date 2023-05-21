@@ -2,11 +2,11 @@
 title: "Can a designer sustainably transform the world?"
 date: "2020-01-02"
 readtime: "1 min"
-category: "innovation"
+category: "buying-guide"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498564/carpadi-blog/drinks-thumb_c4hgpl.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498564/carpadi-blog/drinks-featured_oltbyv.webp"
-tags: ["business", "innovation"]
-author: author2
+tags: ["business"]
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

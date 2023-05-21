@@ -1,27 +1,24 @@
-- id: author1
+- id: jane-smith
   image: https://res.cloudinary.com/grootretro/image/upload/v1684528857/carpadi-blog/jane-smith_vvvqdn.webp
   name: Jane Smith
   job: Creative Designer
-  bio: Sed commodo, est quis maximus fermentum, massa ipsum euismod neque, in varius risus tellus quis lacus. Sed ac bibendum odio.
   expertise: [Advertising, Business, Designer]
   ig: https://www.instagram.com/jane_smith
-  twitter:  https://www.twitter.com/jane_smith
-  site:  https://www.janesmith.com
-- id: author2
-  image: https://res.cloudinary.com/grootretro/image/upload/v1684528857/carpadi-blog/john-doe_pya3ui.webp
-  name: John Doe
-  job: Website Developer
-  bio: Sed commodo, est quis maximus fermentum, massa ipsum euismod neque, in varius risus tellus quis lacus. Sed ac bibendum odio.
-  expertise: [ASP.NET, Assembly, JavaScript]
-  ig: https://www.instagram.com/johndoe
-  twitter:  https://www.twitter.com/johndoe
-  site:  https://www.johndoe.com
-- id: author3
-  image: https://res.cloudinary.com/grootretro/image/upload/v1684528857/carpadi-blog/steve-grant_woy7b3.webp
-  name: Steve Grant
-  job: Product Designer
-  bio: Sed commodo, est quis maximus fermentum, massa ipsum euismod neque, in varius risus tellus quis lacus. Sed ac bibendum odio.
-  expertise: [Public Relation, Market Analyst, Designer]
-  ig: https://www.instagram.com/stevegrant
-  twitter:  https://www.twitter.com/stevegrant
-  site:  https://www.stevegrant.com
+# - id: author2
+#   image: https://res.cloudinary.com/grootretro/image/upload/v1684528857/carpadi-blog/john-doe_pya3ui.webp
+#   name: John Doe
+#   job: Website Developer
+#   bio: Sed commodo, est quis maximus fermentum, massa ipsum euismod neque, in varius risus tellus quis lacus. Sed ac bibendum odio.
+#   expertise: [ASP.NET, Assembly, JavaScript]
+#   ig: https://www.instagram.com/johndoe
+#   twitter:  https://www.twitter.com/johndoe
+#   site:  https://www.johndoe.com
+# - id: author3
+#   image: https://res.cloudinary.com/grootretro/image/upload/v1684528857/carpadi-blog/steve-grant_woy7b3.webp
+#   name: Steve Grant
+#   job: Product Designer
+#   bio: Sed commodo, est quis maximus fermentum, massa ipsum euismod neque, in varius risus tellus quis lacus. Sed ac bibendum odio.
+#   expertise: [Public Relation, Market Analyst, Designer]
+#   ig: https://www.instagram.com/stevegrant
+#   twitter:  https://www.twitter.com/stevegrant
+#   site:  https://www.stevegrant.com

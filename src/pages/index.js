@@ -155,12 +155,12 @@ const BlogIndex = ({ data }) => {
       </Row>
 
       <Fade bottom>
-        <CategoryHeading category="advertising" />
+        <CategoryHeading category="car-reviews" />
         <div style={{ padding: "0 14px" }}>
-          <Card data={advertBigDataPosts} cardType="advert" />
+          <Card data={advertBigDataPosts} cardType="car-reviews" />
         </div>
 
-        <SmallCard data={advertSmallDataPosts} cardType="advert" />
+        <SmallCard data={advertSmallDataPosts} cardType="car-reviews" />
       </Fade>
 
       {/* <div className="analysis">
@@ -173,32 +173,32 @@ const BlogIndex = ({ data }) => {
       </div> */}
 
       <Fade bottom>
-        <CategoryHeading category="case-studies" />
+        <CategoryHeading category="maintenance-and-tips" />
         <div style={{ padding: "0 14px" }}>
           <Card
             smallCardData={caseStudiesSmallDataPosts}
             data={caseStudiesBigDataPosts}
-            cardType="case-studies"
+            cardType="maintenance-and-tips"
             removeBadge={true}
           />
         </div>
       </Fade>
 
       <Fade bottom>
-        <CategoryHeading category="innovation" />
+        <CategoryHeading category="buying-guide" />
         <div style={{ padding: "0 14px" }}>
-          <Card data={innovationBigDataPosts} cardType="innovation" />
+          <Card data={innovationBigDataPosts} cardType="buying-guide" />
         </div>
-        <SmallCard data={innovationSmallDataPosts} cardType="innovation" />
+        <SmallCard data={innovationSmallDataPosts} cardType="buying-guide" />
       </Fade>
 
       <Fade bottom>
-        <CategoryHeading category="management" />
+        <CategoryHeading category="car-comparison" />
         <div style={{ padding: "0 14px" }}>
           <Card
             smallCardData={managementSmallDataPosts}
             data={managementBigDataPosts}
-            cardType="management"
+            cardType="car-comparison"
             removeBadge={true}
           />
         </div>
@@ -291,7 +291,7 @@ export const pageQuery = graphql`
     }
 
     advertBigCardData: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "advertising" } } }
+      filter: { frontmatter: { category: { eq: "car-reviews" } } }
       sort: { frontmatter: { date: DESC } }
       limit: 3
     ) {
@@ -317,7 +317,7 @@ export const pageQuery = graphql`
     }
 
     advertSmallCardData: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "advertising" } } }
+      filter: { frontmatter: { category: { eq: "car-reviews" } } }
       sort: { frontmatter: { date: DESC } }
       skip: 3
       limit: 3
@@ -341,7 +341,7 @@ export const pageQuery = graphql`
     }
 
     caseStudiesBigCardData: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "case-studies" } } }
+      filter: { frontmatter: { category: { eq: "maintenance-and-tips" } } }
       sort: { frontmatter: { date: DESC } }
       limit: 2
     ) {
@@ -367,7 +367,7 @@ export const pageQuery = graphql`
     }
 
     caseStudiesSmallCardData: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "case-studies" } } }
+      filter: { frontmatter: { category: { eq: "maintenance-and-tips" } } }
       sort: { frontmatter: { date: DESC } }
       skip: 2
       limit: 3
@@ -391,7 +391,7 @@ export const pageQuery = graphql`
     }
 
     innovationBigCardData: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "innovation" } } }
+      filter: { frontmatter: { category: { eq: "buying-guide" } } }
       sort: { frontmatter: { date: DESC } }
       limit: 3
     ) {
@@ -417,7 +417,7 @@ export const pageQuery = graphql`
     }
 
     innovationSmallCardData: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "innovation" } } }
+      filter: { frontmatter: { category: { eq: "buying-guide" } } }
       sort: { frontmatter: { date: DESC } }
       skip: 3
       limit: 3
@@ -441,7 +441,7 @@ export const pageQuery = graphql`
     }
 
     managementBigCardData: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "management" } } }
+      filter: { frontmatter: { category: { eq: "car-comparison" } } }
       sort: { frontmatter: { date: DESC } }
       limit: 2
     ) {
@@ -467,7 +467,7 @@ export const pageQuery = graphql`
     }
 
     managementSmallCardData: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "management" } } }
+      filter: { frontmatter: { category: { eq: "car-comparison" } } }
       sort: { frontmatter: { date: DESC } }
       skip: 2
       limit: 3

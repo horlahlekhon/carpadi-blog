@@ -14,10 +14,9 @@ const AuthorPosts = ({ data, pageContext }) => {
   const next = pageContext.next
   const totalPage = pageContext.totalPage
   const currentPage = pageContext.currentPage
-  const { id, name, image, job, expertise, bio, ig, twitter, site } =
+  const { id, name, image, job, expertise, ig, } =
     data.markdownRemark.fields.author
 
-  console.log(authorPosts)
 
   return (
     <Layout>
@@ -35,11 +34,8 @@ const AuthorPosts = ({ data, pageContext }) => {
             name={name}
             author_image={image}
             job={job}
-            bio={bio}
             expertise={expertise}
             ig={ig}
-            twitter={twitter}
-            site={site}
             removeButton="none"
           />
 
@@ -115,9 +111,6 @@ export const query = graphql`
         author {
           image
           name
-          site
-          twitter
-          bio
           expertise
           id
           ig
@@ -147,14 +140,11 @@ export const query = graphql`
           slug
           author {
             name
-            image
-            bio
+            image    
             expertise
             id
             ig
             job
-            twitter
-            site
           }
         }
         id

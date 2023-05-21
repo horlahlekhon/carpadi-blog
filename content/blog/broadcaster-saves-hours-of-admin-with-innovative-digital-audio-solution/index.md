@@ -2,11 +2,11 @@
 title: "Broadcaster Saves Hours of Admin with Innovative Digital Audio Solution"
 date: "2020-04-16"
 readtime: "1 min"
-category: "case-studies"
+category: "maintenance-and-tips"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498565/carpadi-blog/broadcast-thumb_onuq6x.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498565/carpadi-blog/broadcast-featured_ifotou.webp"
 tags: ["agency", "business", "technology"]
-author: author3
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

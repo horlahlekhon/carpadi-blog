@@ -58,7 +58,13 @@
     margin: 0 auto;
   }
   
+  .category-menu-ctn .category-menu .cars, 
+  .category-menu-ctn .category-menu .cars-alt{
+    width: 20%;
+    margin: 0;
+  }
   
+
   .category-menu-ctn .category-menu span{
       line-height: 1.33;
       display: block;
@@ -112,11 +118,33 @@
   }
   
   }
+
+  @media (min-width: 920px){
+    .category-menu-ctn .category-menu .cars, 
+    .category-menu-ctn .category-menu .cars-alt{
+      width: 20%;
+      margin: 0 -4px;
+    }
+  }
+
+  @media (min-width: 1024px){
+    .category-menu-ctn .category-menu .cars, 
+    .category-menu-ctn .category-menu .cars-alt{
+      width: 20%;
+      margin: 0 -6px;
+    }
+  }
   
   @media (min-width: 1200px){
   
     .category-menu-ctn {
       margin: 60px 0px 0;
+    }
+
+    .category-menu-ctn .category-menu .cars, 
+    .category-menu-ctn .category-menu .cars-alt{
+      width: 20%;
+      margin: 0 -10px;
     }
     
   }

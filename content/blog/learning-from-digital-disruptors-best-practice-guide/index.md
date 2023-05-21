@@ -2,11 +2,11 @@
 title: "Learning from Digital Disruptors Best Practice Guide"
 date: "2014-02-16"
 readtime: "3 min"
-category: "management"
+category: "car-comparison"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498576/carpadi-blog/reader-thumb_uxlh4m.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684498567/carpadi-blog/reader-featured_e8ckxq.webp"
 tags: ["agency", "business", "technology"]
-author: author3
+author: jane-smith
 ---
 
 

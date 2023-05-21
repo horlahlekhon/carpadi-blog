@@ -2,11 +2,11 @@
 title: "5 ingenious innovations triggered by chaos in startups"
 date: "2019-04-05"
 readtime: "2 min"
-category: "innovation"
+category: "buying-guide"
 thumbImg: "https://res.cloudinary.com/grootretro/image/upload/v1684491457/carpadi-blog/ingenious-thumb_sgjihq.webp"
 featuredImg: "https://res.cloudinary.com/grootretro/image/upload/v1684491457/carpadi-blog/ingenious-featured_lezxba.webp"
 tags: ["agency", "advert", "technology"]
-author: author2
+author: jane-smith
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and
