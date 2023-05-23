@@ -114,16 +114,16 @@ export default function Nav({ dark, setDark, modalShow, input, removeTopics }) {
                       <h2 className="scn-h2">Topics</h2>
                       <div className="canvas-links">
                         <p>
-                          <Link to="/category/advertising">Advertising</Link>
+                          <Link to="/category/car-reviews">Car Reviews</Link>
                         </p>
                         <p>
-                          <Link to="/category/case-studies">Case Studies</Link>
+                          <Link to="/category/maintenance-and-tips">Maintenance & Tips</Link>
                         </p>
                         <p>
-                          <Link to="/category/innovation">Innovation</Link>
+                          <Link to="/category/buying-guide">Buying Guide</Link>
                         </p>
                         <p>
-                          <Link to="/category/management">Management</Link>
+                          <Link to="/category/car-comparison">Car Comparison</Link>
                         </p>
                       </div>
                     </div>
